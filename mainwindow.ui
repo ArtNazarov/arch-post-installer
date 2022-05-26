@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Arch Linux Post Install Tool</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>131</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Применить</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallMc">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>201</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка  файловых утилит</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallVideoPlayers">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>150</y>
+      <width>181</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка видеоплеера</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallKeys">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>141</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ключей</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallMirrors">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка зеркал</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkUpdateSoftware">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Обновить программы</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallMake">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>181</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка компиляторов</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallSystemTools">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>201</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка системных утилит</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallNetworkTools">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>181</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка сетевых утилит</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallFreqTools">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>231</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Управление частотой процессора</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallAutoFreq">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>181</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Автоуправление частотой</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallZenKernel">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>10</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ядра Zen</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallXanmodKernel">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>30</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ядра Xanmod</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallTkgKernel">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>50</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ядра Tkg</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkUpdateGrub">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>70</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Обновить загрузчик</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallMesa">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>90</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка mesa</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallVulkan">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>110</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка Vulkan</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallDbusBroker">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>130</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка Dbus Broker</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkClearFontCache">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Очистить кеш шрифтов</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkClearGoogleInstallation">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>30</y>
+      <width>211</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Стереть файлы Google Chrome</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallSecurityTools">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>50</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Утилиты безопасности</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallBluetoothTools">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>70</y>
+      <width>141</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Утилиты Bluetooth</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallPulseAudio">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>90</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка PulseAudio</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallPipeWire">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>110</y>
+      <width>141</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка PipeWire</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallAlsa">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>130</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ALSA</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallAudioPlayer">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>150</y>
+      <width>181</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка аудиоплееров</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallInternetTools">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>211</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка софта для интернет</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallDeveloperTools">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>231</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ПО для разработчиков</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallFlatpak">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>180</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка FlatPak</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallSoftwareFromFlatpak">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>200</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ПО из flatpak</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallPamac">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>220</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка Pamac</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallSnap">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>240</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка Snap</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkPrivacyPasswords">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>180</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Приватность, пароли</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallWine">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>200</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка WINE</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallDeTools">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>220</y>
+      <width>211</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка дополнений для DE</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallMessengers">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>240</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка мессенджеров</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallAnanicy">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>280</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка ananicy</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallRNG">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>300</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка RNG</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkInstallHaveged">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>280</y>
+      <width>141</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Установка haveged</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkEnableTrim">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>300</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Включить trim</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
