@@ -543,6 +543,44 @@
      <string>Включить trim</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="cboTerminal">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>290</y>
+      <width>79</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Konsole</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>XTerm</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>UXTerm</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="txtTerm">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>290</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Терминал</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

@@ -16,15 +16,15 @@ MainWindow::~MainWindow()
 }
 
 
-void InstallProc(QString cmd){
+void InstallProc(QString konsole, QString cmd){
  const QString bash_path = "/bin/bash";
- const QString konsole = "konsole -e ";
+
  QProcess::execute(bash_path, { "-c",  konsole +  cmd });
 }
 
-void InstallProcByList(QStringList cmds){
+void InstallProcByList(QString konsole, QStringList cmds){
  const QString bash_path = "/bin/bash";
- const QString konsole = "konsole -e ";
+
  QStringListIterator it(cmds);
 
     while (it.hasNext()) {
@@ -36,6 +36,19 @@ void InstallProcByList(QStringList cmds){
 
 void MainWindow::on_pushButton_clicked()
 {
+
+    QStringList Terminal;
+    Terminal << "konsole -e ";
+    Terminal << "/bin/xterm -e ";
+    Terminal << "/bin/uxterm -e ";
+
+    QString term = Terminal[0];
+    int index = ui->cboTerminal->currentIndex();
+
+    if (index>=0){
+        term = Terminal[index];
+    };
+
 
     QStringList Install_Keys_Actions;
     Install_Keys_Actions << "sudo pacman-key --init";
@@ -230,236 +243,236 @@ void MainWindow::on_pushButton_clicked()
     if (ui->chkInstallKeys->isChecked()){
         message = "Installing keys";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Keys_Actions);
+        InstallProcByList(term, Install_Keys_Actions);
     }
 
     if (ui->chkInstallMirrors->isChecked()){
         message = "Installing mirrors";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Mirrors_Actions);
+        InstallProcByList(term, Install_Mirrors_Actions);
     }
 
     if (ui->chkUpdateSoftware->isChecked()){
         message = "Update software";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(UPDATE_SOFTWARE);
+        InstallProc(term, UPDATE_SOFTWARE);
     }
 
     if (ui->chkInstallMake->isChecked()){
         message = "Install make tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Make_Actions);
+        InstallProcByList(term, Install_Make_Actions);
     }
 
     if (ui->chkInstallSystemTools->isChecked()){
         message = "Install system tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_System_Tools_Actions);
+        InstallProcByList(term, Install_System_Tools_Actions);
     }
 
     if (ui->chkInstallNetworkTools->isChecked()){
         message = "Install network tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Networking_Actions);
+        InstallProcByList(term, Install_Networking_Actions);
     }
 
     if (ui->chkInstallFreqTools->isChecked()){
         message = "Install cpu freq tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Freq_Actions);
+        InstallProcByList(term, Install_Freq_Actions);
     }
 
     if (ui->chkInstallAutoFreq->isChecked()){
         message = "Install auto cpu freq tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Auto_Freq);
+        InstallProcByList(term, Install_Auto_Freq);
     }
 
     if (ui->chkInstallZenKernel->isChecked()){
         message = "Install ZEN kernel";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_ZEN_KERNEL);
+        InstallProc(term, INSTALL_ZEN_KERNEL);
     }
 
     if (ui->chkInstallXanmodKernel->isChecked()){
         message = "Install Xanmod kernel";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Xanmod_Kernel_Actions);
+        InstallProcByList(term, Install_Xanmod_Kernel_Actions);
     }
 
     if (ui->chkInstallTkgKernel->isChecked()){
         message = "Install Tkg kernel";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Tkg_Kernel_Actions);
+        InstallProcByList(term, Install_Tkg_Kernel_Actions);
     }
 
     if (ui->chkUpdateGrub->isChecked()){
         message = "Update grub";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(UPDATE_GRUB);
+        InstallProc(term, UPDATE_GRUB);
     }
 
     if (ui->chkInstallMesa->isChecked()){
         message = "Install mesa";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_MESA);
+        InstallProc(term, INSTALL_MESA);
     }
 
     if (ui->chkInstallVulkan->isChecked()){
         message = "Install vulkan";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_VULKAN);
+        InstallProc(term, INSTALL_VULKAN);
     }
 
     if (ui->chkInstallDbusBroker->isChecked()){
         message = "Install dbus broker";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Dbus_Broker_Actions);
+        InstallProcByList(term, Install_Dbus_Broker_Actions);
     }
 
     if (ui->chkClearFontCache->isChecked()){
         message = "Clear font cache";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Clear_Font_Cache_Actions);
+        InstallProcByList(term, Clear_Font_Cache_Actions);
     }
 
     if (ui->chkClearGoogleInstallation->isChecked()){
         message = "Clear google chrome files";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(CLEAR_GOOGLE_INSTALLATION);
+        InstallProc(term, CLEAR_GOOGLE_INSTALLATION);
     }
 
     if (ui->chkInstallSecurityTools->isChecked()){
         message = "Install security tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Security_Tools_Actions);
+        InstallProcByList(term, Install_Security_Tools_Actions);
     }
 
     if (ui->chkInstallBluetoothTools->isChecked()){
         message = "Install bluetooth tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Bluetooth_Tools_Actions);
+        InstallProcByList(term, Install_Bluetooth_Tools_Actions);
     }
 
     if (ui->chkInstallPulseAudio->isChecked()){
         message = "Install PulseAudio tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_PulseAudio_Actions);
+        InstallProcByList(term, Install_PulseAudio_Actions);
     }
 
     if (ui->chkInstallPipeWire->isChecked()){
         message = "Install PipeWire tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_PIPEWIRE);
+        InstallProc(term, INSTALL_PIPEWIRE);
     }
 
     if (ui->chkInstallAlsa->isChecked()){
         message = "Install ALSA tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_ALSA);
+        InstallProc(term, INSTALL_ALSA);
     }
 
     if (ui->chkInstallAudioPlayer->isChecked()){
         message = "Install audio players";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Audio_Players_Actions);
+        InstallProcByList(term, Install_Audio_Players_Actions);
     }
 
     if (ui->chkInstallInternetTools->isChecked()){
         message = "Install internet tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Internet_Tools_Actions);
+        InstallProcByList(term, Install_Internet_Tools_Actions);
     }
 
     if (ui->chkInstallDeveloperTools->isChecked()){
         message = "Install developer tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Developer_Tools_Actions);
+        InstallProcByList(term, Install_Developer_Tools_Actions);
     }
 
     if (ui->chkInstallFlatpak->isChecked()){
         message = "Install FlatPak tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Flatpak_Tools_Actions);
+        InstallProcByList(term, Install_Flatpak_Tools_Actions);
     }
 
     if (ui->chkInstallSoftwareFromFlatpak->isChecked()){
         message = "Install software from FlatPak";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Software_from_Flatpak);
+        InstallProcByList(term, Install_Software_from_Flatpak);
     }
 
     if (ui->chkInstallPamac->isChecked()){
         message = "Install PAMAC";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_PAMAC);
+        InstallProc(term, INSTALL_PAMAC);
     }
 
     if (ui->chkInstallSnap->isChecked()){
         message = "Install Snap";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Snap_Tools_Actions);
+        InstallProcByList(term, Install_Snap_Tools_Actions);
     }
 
     if (ui->chkPrivacyPasswords->isChecked()){
         message = "Install privacy, passwords tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_PRIVACY_PASSWORDS);
+        InstallProc(term, INSTALL_PRIVACY_PASSWORDS);
     }
 
     if (ui->chkInstallWine->isChecked()){
         message = "Install WINE";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Wine_Actions);
+        InstallProcByList(term, Install_Wine_Actions);
     }
 
     if (ui->chkInstallDeTools->isChecked()){
         message = "Install DE tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_DE_TOOLS);
+        InstallProc(term, INSTALL_DE_TOOLS);
     }
 
     if (ui->chkInstallMessengers->isChecked()){
         message = "Install messengers";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Messengers_Actions);
+        InstallProcByList(term, Install_Messengers_Actions);
     }
 
     if (ui->chkInstallAnanicy->isChecked()){
         message = "Install ananicy";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Ananicy_Actions);
+        InstallProcByList(term, Install_Ananicy_Actions);
     }
 
     if (ui->chkInstallRNG->isChecked()){
         message = "Install RNG";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_RNG_Actions);
+        InstallProcByList(term, Install_RNG_Actions);
     }
 
     if (ui->chkInstallHaveged->isChecked()){
         message = "Install Haveged";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Install_Haveged_Actions);
+        InstallProcByList(term, Install_Haveged_Actions);
     }
 
     if (ui->chkEnableTrim->isChecked()){
         message = "Enable trim";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(Enable_Trim_Actions);
+        InstallProcByList(term, Enable_Trim_Actions);
     }
 
 
     if (ui->chkInstallMc->isChecked()){
         message = "Installing mc";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(INSTALL_FS_TOOLS);
+        InstallProc(term, INSTALL_FS_TOOLS);
     }
 
     if (ui->chkInstallVideoPlayers->isChecked()){
         message = "Installing videoplayers";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc( INSTALL_VIDEO_PLAYERS );
+        InstallProc( term, INSTALL_VIDEO_PLAYERS );
 
     }
 
