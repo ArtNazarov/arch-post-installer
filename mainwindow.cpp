@@ -3,11 +3,26 @@
 #include <QProcess>
 #include <QStringList>
 
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+    ui->tbsPages->setCurrentIndex(0);
+    ui->tbsPages->setTabText(0, "Основные");
+    ui->tbsPages->setTabText(1, "Ядра");
+    ui->tbsPages->setTabText(2, "Видео");
+    ui->tbsPages->setTabText(3, "Центры приложений");
+    ui->tbsPages->setTabText(4, "Очистка");
+    ui->tbsPages->setTabText(5, "Интернет, приватность");
+    ui->tbsPages->setTabText(6, "Звук");
+    ui->tbsPages->setTabText(7, "Оптимизация");
+    ui->tbsPages->setTabText(8, "Прочее");
+    ui->tbsPages->setTabText(9, "Настройки");
 }
 
 MainWindow::~MainWindow()
@@ -217,6 +232,19 @@ void MainWindow::on_pushButton_clicked()
     Enable_Trim_Actions << "sudo systemctl enable fstrim.timer";
     Enable_Trim_Actions << "sudo fstrim -v / ";
     Enable_Trim_Actions << "sudo fstrim -va  / ";
+
+
+    QStringList Install_System_Clean_Tools;
+
+    Install_System_Clean_Tools << "git clone https://aur.archlinux.org/stacer.git";
+    Install_System_Clean_Tools << "cd stacer";
+    Install_System_Clean_Tools << "makepkg -sric";
+    Install_System_Clean_Tools << "sudo pacman -S bleachbit";
+
+
+    Install_System_Clean_Tools << "git clone https://aur.archlinux.org/cleanerml-git.git";
+    Install_System_Clean_Tools << "cd cleanerml-git";
+    Install_System_Clean_Tools << "makepkg -sric";
 
 
 
@@ -462,6 +490,12 @@ void MainWindow::on_pushButton_clicked()
         InstallProcByList(term, Enable_Trim_Actions);
     }
 
+    if (ui->chkInstallSystemClean->isChecked()){
+        message = "Install system clean tools";
+        ui->centralwidget->setWindowTitle(message);
+        InstallProcByList(term, Install_System_Tools_Actions);
+    }
+
 
     if (ui->chkInstallMc->isChecked()){
         message = "Installing mc";
@@ -478,5 +512,10 @@ void MainWindow::on_pushButton_clicked()
 
 
 
+
+
 }
+
+
+
 
