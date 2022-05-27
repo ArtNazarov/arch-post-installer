@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -363,7 +363,7 @@
        <rect>
         <x>10</x>
         <y>30</y>
-        <width>211</width>
+        <width>241</width>
         <height>24</height>
        </rect>
       </property>
@@ -376,12 +376,51 @@
        <rect>
         <x>10</x>
         <y>50</y>
-        <width>141</width>
+        <width>201</width>
         <height>24</height>
        </rect>
       </property>
       <property name="text">
-       <string>Очистка системы</string>
+       <string>Уст. для очистки системы</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkRemoveOldPkgs">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>201</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Удаление старых пакетов</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkRemoveAllPkgsCache">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>211</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Удалить кеш всех пакетов</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkRemoveOrpPackages">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>211</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Удаление неиспользуемых</string>
       </property>
      </widget>
     </widget>
@@ -665,6 +704,51 @@
       <item>
        <property name="text">
         <string>UXTerm</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>xfce4-terminal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>terminator</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tilda</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>roxterm</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>tilix</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>lxterminal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>gnome-terminal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>terminology</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>deepin-terminal</string>
        </property>
       </item>
      </widget>

@@ -2,7 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QProcess>
 #include <QStringList>
-
+#include <QDebug>
 
 
 
@@ -34,16 +34,22 @@ MainWindow::~MainWindow()
 void InstallProc(QString konsole, QString cmd){
  const QString bash_path = "/bin/bash";
 
- QProcess::execute(bash_path, { "-c",  konsole +  cmd });
+ cmd="\""  + cmd +   "\"";
+
+ QProcess::execute(bash_path, { "-c",  konsole + cmd });
+
 }
 
 void InstallProcByList(QString konsole, QStringList cmds){
  const QString bash_path = "/bin/bash";
-
+ QString cmd = "";
  QStringListIterator it(cmds);
 
     while (it.hasNext()) {
-        QProcess::execute(bash_path, { "-c",  konsole + it.next().trimmed() });
+        cmd = it.next().trimmed();
+
+        cmd="\""  + cmd +   "\"";
+        QProcess::execute(bash_path, { "-c",  konsole + cmd});
     }
 
 
@@ -56,6 +62,15 @@ void MainWindow::on_pushButton_clicked()
     Terminal << "konsole -e ";
     Terminal << "/bin/xterm -e ";
     Terminal << "/bin/uxterm -e ";
+    Terminal << "/bin/xfce4-terminal -e ";
+    Terminal << "/bin/terminator -e ";
+    Terminal << "/bin/tilda -e ";
+    Terminal << "/bin/roxterm -e ";
+    Terminal << "/bin/tilix -e ";
+    Terminal << "/bin/lxterminal -e ";
+    Terminal << "/bin/gnome-terminal -e ";
+    Terminal << "/bin/terminology -e ";
+    Terminal << "/bin/deepin-terminal -e ";
 
     QString term = Terminal[0];
     int index = ui->cboTerminal->currentIndex();
@@ -264,6 +279,9 @@ void MainWindow::on_pushButton_clicked()
     const QString INSTALL_PAMAC = "yay -S pamac-aur";
     const QString INSTALL_PRIVACY_PASSWORDS = "sudo pacman -Sy keepassxc";
     const QString INSTALL_DE_TOOLS = "sudo pacman -Sy ffmpegthumbs";
+    const QString REMOVE_OLD_PKGS = "sudo pacman -Sc";
+    const QString REMOVE_ALL_PKG_CACHE = "sudo pacman -Scc";
+    const QString REMOVE_ORPHANS = "sudo pacman -Rsn $(pacman -Qdtq)";
 
 
      QString message = "Test";
@@ -511,6 +529,23 @@ void MainWindow::on_pushButton_clicked()
     }
 
 
+ if (ui->chkRemoveOldPkgs->isChecked()){
+     message = "Remove cache for old packages";
+     ui->centralwidget->setWindowTitle(message);
+     InstallProc( term, REMOVE_OLD_PKGS );
+ }
+
+ if (ui->chkRemoveAllPkgsCache->isChecked()){
+     message = "Remove cache for all packages";
+     ui->centralwidget->setWindowTitle(message);
+     InstallProc( term, REMOVE_ALL_PKG_CACHE);
+ }
+
+ if (ui->chkRemoveOrpPackages->isChecked()){
+     message = "Remove orphans";
+     ui->centralwidget->setWindowTitle(message);
+     InstallProc( term, REMOVE_ORPHANS);
+ }
 
 
 
