@@ -13,10 +13,13 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void setTranslation(int lng);
     ~MainWindow();
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_cboLanguage_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;

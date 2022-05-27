@@ -2,7 +2,7 @@
 #include "./ui_mainwindow.h"
 #include <QProcess>
 #include <QStringList>
-#include <QDebug>
+#include <QMap>
 
 
 
@@ -12,17 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-    ui->tbsPages->setCurrentIndex(0);
-    ui->tbsPages->setTabText(0, "Основные");
-    ui->tbsPages->setTabText(1, "Ядра");
-    ui->tbsPages->setTabText(2, "Видео");
-    ui->tbsPages->setTabText(3, "Центры приложений");
-    ui->tbsPages->setTabText(4, "Очистка");
-    ui->tbsPages->setTabText(5, "Интернет, приватность");
-    ui->tbsPages->setTabText(6, "Звук");
-    ui->tbsPages->setTabText(7, "Оптимизация");
-    ui->tbsPages->setTabText(8, "Прочее");
-    ui->tbsPages->setTabText(9, "Настройки");
+
+    this->setTranslation(0); // 0 is english, 1 is russian
 }
 
 MainWindow::~MainWindow()
@@ -51,6 +42,280 @@ void InstallProcByList(QString konsole, QStringList cmds){
         cmd="\""  + cmd +   "\"";
         QProcess::execute(bash_path, { "-c",  konsole + cmd});
     }
+
+
+}
+
+void MainWindow::setTranslation(int lng){
+    ui->tbsPages->setCurrentIndex(0);
+
+
+
+
+    struct Translate{
+        QStringList tr;
+    };
+
+    QMap<QString, Translate> map;
+    Translate general;
+    general.tr << "General" << "Общие";
+    map["general"]=general;
+
+
+    Translate kernels;
+    kernels.tr << "Kernels" << "Ядра";
+    map["kernels"]=kernels;
+
+    Translate video;
+    video.tr << "Video" << "Видео";
+    map["video"] = video;
+
+    Translate app_centers;
+    app_centers.tr << "App Centers" << "Центры приложений";
+    map["appcenters"] = app_centers;
+
+    Translate cleaning;
+    cleaning.tr << "Cleaning" << "Очистка";
+    map["cleaning"] = cleaning;
+
+    Translate privacy;
+    privacy.tr << "Privacy" << "Приватность";
+    map["privacy"] = privacy;
+
+    Translate sound;
+    sound.tr << "Sound" << "Звук";
+    map["sound"] = sound;
+
+    Translate optimiz;
+    optimiz.tr << "Optimization" << "Оптимизация";
+    map["optimization"] = optimiz;
+
+
+    Translate misc;
+    misc.tr << "Misc" << "Разное";
+    map["misc"] = misc;
+
+    Translate opts;
+    opts.tr << "options" << "Опции";
+    map["options"] = opts;
+
+    Translate apply_button;
+    apply_button.tr << "Apply" << "Применить";
+    map["apply"] = apply_button;
+
+    Translate language;
+    language.tr << "Language" << "Язык";
+    map["language"] = language;
+
+    Translate terminal;
+    terminal.tr << "Terminal" << "Терминал";
+    map["terminal"] = terminal;
+
+
+
+    ui->tbsPages->setTabText(0, map["general"].tr[lng]);
+
+    ui->tbsPages->setTabText(1, map["kernels"].tr[lng]);
+    ui->tbsPages->setTabText(2, map["video"].tr[lng]);
+    ui->tbsPages->setTabText(3, map["appcenters"].tr[lng]);
+    ui->tbsPages->setTabText(4, map["cleaning"].tr[lng]);
+
+    ui->tbsPages->setTabText(5, map["privacy"].tr[lng]);
+    ui->tbsPages->setTabText(6, map["sound"].tr[lng]);
+    ui->tbsPages->setTabText(7, map["optimization"].tr[lng]);
+    ui->tbsPages->setTabText(8, map["misc"].tr[lng]);
+
+    ui->tbsPages->setTabText(9, map["options"].tr[lng]);
+    ui->pushButton->setText(map["apply"].tr[lng]);
+
+    ui->lblLanguage->setText(map["language"].tr[lng]);
+    ui->lblTerminal->setText(map["terminal"].tr[lng]);
+
+    Translate clearfontcache;
+    clearfontcache.tr << "Clear font cache" << "Очистка кеша шрифтов";
+    map["clearfontcache"] = clearfontcache;
+    ui->chkClearFontCache->setText(map["clearfontcache"].tr[lng]);
+
+    QStringList cleargooglecache;
+    cleargooglecache << "Clear Google Installation" << "Очистка установки google chrome";
+    ui->chkClearGoogleInstallation->setText(cleargooglecache[lng]);
+
+    QStringList removeallpkgscache;
+    removeallpkgscache << "Remove all packages" << "Удалить все пакеты";
+    ui->chkRemoveAllPkgsCache->setText(removeallpkgscache[lng]);
+
+
+
+    QStringList removeoldpkgs;
+    removeoldpkgs << " Remove old packages " << " Удалить старые пакеты ";
+    ui->chkRemoveOldPkgs->setText(removeoldpkgs[lng]);
+
+    QStringList removeorppackages;
+    removeorppackages << " Remove orphans " << " Удалить пакеты сироты ";
+    ui->chkRemoveOrpPackages->setText(removeorppackages[lng]);
+
+    QStringList enabletrim;
+    enabletrim << " Enable TRIM " << " Включить trim";
+    ui->chkEnableTrim->setText(enabletrim[lng]);
+
+    QStringList gnomeoptimization;
+    gnomeoptimization << " Optimize GNOME " << " Оптимизировать GNOME ";
+    ui->chkGnomeOptimization->setText(gnomeoptimization[lng]);
+
+    QStringList plasmaoptimization;
+    plasmaoptimization << " Optimize Plasma" <<" Oптимизация Plasma ";
+    ui->chkPlasmaOptimization->setText(plasmaoptimization[lng]);
+
+    QStringList xfce4optimization;
+    xfce4optimization << " Optimize Xfce4 " << " Оптимизир. Xfce4";
+    ui->chkXfce4Optimization->setText(xfce4optimization[lng]);
+
+
+    QStringList installalsa;
+    installalsa << " Install Alsa " << " Поставить Alsa ";
+    ui->chkInstallAlsa->setText(installalsa[lng]);
+
+    QStringList installananicy;
+    installananicy << " Install ananicy" << " Поставить Ananicy ";
+    ui->chkInstallAnanicy->setText(installananicy[lng]);
+
+    QStringList installaudioplayers;
+    installaudioplayers << " Install audio players" << " Поставить аудиоплееры";
+    ui->chkInstallAudioPlayer->setText(installaudioplayers[lng]);
+
+    QStringList installpulseaudio;
+    installpulseaudio << " Install Pulse Audio" << " Поставить Pulse Audio";
+    ui->chkInstallPulseAudio->setText(installpulseaudio[lng]);
+
+    QStringList installautofreqtools;
+    installautofreqtools << "Automatic cpu freq" << " Автоматич. управл. частотой ";
+    ui->chkInstallAutoFreq->setText(installautofreqtools[lng]);
+
+    QStringList installbluetoothtools;
+    installbluetoothtools << " Install bluetooth " << " Поставить bluetooth ";
+    ui->chkInstallBluetoothTools->setText(installbluetoothtools[lng]);
+
+    QStringList installfreqtools;
+    installfreqtools << "CPU freq tools" << "Утилиты управл. частотой";
+    ui->chkInstallFreqTools->setText(installfreqtools[lng]);
+
+    QStringList installdeaddons;
+    installdeaddons << " Install DE addons " << " Дополнения для DE ";
+    ui->chkInstallDeTools->setText(installdeaddons[lng]);
+
+    QStringList installdevelopertools;
+    installdevelopertools << " Install developer tools " << " Утилиты для разработчика ";
+    ui->chkInstallDeveloperTools->setText(installdevelopertools[lng]);
+
+    QStringList installinternettools;
+    installinternettools <<  " Install internet tools" << " Утилиты для интернета";
+    ui->chkInstallInternetTools->setText(installinternettools[lng]);
+
+    QStringList installnetworktools;
+    installnetworktools << " Install network tools" << " Утилиты для сети ";
+    ui->chkInstallNetworkTools->setText(installnetworktools[lng]);
+
+    QStringList installdbusbroker;
+    installdbusbroker << " Install dbus broker " << " Установка dbus ";
+    ui->chkInstallDbusBroker->setText(installdbusbroker[lng]);
+
+    QStringList installsecuritytools;
+    installsecuritytools << "Install security tools " << " Утилиты безопасности ";
+    ui->chkInstallSecurityTools->setText(installsecuritytools[lng]);
+
+    QStringList installhaveged;
+    installhaveged << " Install haveged " << " установка haveged";
+    ui->chkInstallHaveged->setText(installhaveged[lng]);
+
+    QStringList installkeys;
+    installkeys << " Install keys " << " Установка ключей ";
+    ui->chkInstallKeys->setText(installkeys[lng]);
+
+    QStringList installmake;
+    installmake << " Install compilers" << " Установка компиляторов ";
+    ui->chkInstallMake->setText(installmake[lng]);
+
+    QStringList installmc;
+    installmc << " Install file tools " << " Установка файловых утилит ";
+    ui->chkInstallMc->setText(installmc[lng]);
+
+    QStringList installmesa;
+    installmesa << " Install mesa " << " Установка mesa ";
+    ui->chkInstallMesa->setText(installmesa[lng]);
+
+    QStringList installmessengers;
+    installmessengers << "Install messengers " << " установка мессенджеров ";
+    ui->chkInstallMessengers->setText(installmessengers[lng]);
+
+    QStringList installmirrors;
+    installmirrors << " setup quick mirrors " << " Настроить зеркала ";
+    ui->chkInstallMirrors->setText(installmirrors[lng]);
+
+    QStringList installpamac;
+    installpamac <<  "Install pamac gui " << " Установка PAMAC ";
+    ui->chkInstallPamac->setText(installpamac[lng]);
+
+    QStringList updatesoftware;
+    updatesoftware << " Update software " << " Обновить программы";
+    ui->chkUpdateSoftware->setText(updatesoftware[lng]);
+
+    QStringList installsystemtools;
+    installsystemtools << " Install system tools " << "Установка системных программ";
+    ui->chkInstallSystemTools->setText(installsystemtools[lng]);
+
+    QStringList installtkgkernel;
+    installtkgkernel << "Install tkg kernel" << "установка ядра TKG";
+    ui->chkInstallTkgKernel->setText(installtkgkernel[lng]);
+    QStringList installzenkernel;
+    installzenkernel << "Install Zen kernel" << "установка ядра ZEN";
+    ui->chkInstallZenKernel->setText(installzenkernel[lng]);
+    QStringList installxanmodkernel;
+    installxanmodkernel << "Install Xanmod Kernel" << "Установка ядра Xanmod";
+    ui->chkInstallXanmodKernel->setText(installxanmodkernel[lng]);
+
+    QStringList updategrub;
+    updategrub << "Update grub" << "Обновить загрузчик";
+    ui->chkUpdateGrub->setText(updategrub[lng]);
+
+    QStringList installvulkan;
+    installvulkan << "Install Vulkan" << "Установка Vulkan";
+    ui->chkInstallVulkan->setText(installvulkan[lng]);
+
+    QStringList installvideoplayers;
+    installvideoplayers << "Install video players " << "Установка видео плееров";
+    ui->chkInstallVideoPlayers->setText(installvideoplayers[lng]);
+
+    QStringList installflatpak;
+    installflatpak << "Install flatpak" << "Установка flatpak";
+    ui->chkInstallFlatpak->setText(installflatpak[lng]);
+
+    QStringList installsoftwarefromflatpak;
+    installsoftwarefromflatpak << "Install soft from flatpak" << "Установка софта с флатпак";
+    ui->chkInstallSoftwareFromFlatpak->setText(installsoftwarefromflatpak[lng]);
+
+    QStringList installsnap;
+    installsnap << "Install snapd" << "Установка snapd";
+    ui->chkInstallSnap->setText(installsnap[lng]);
+
+    QStringList installsystemclean;
+    installsystemclean << "Install system cleaners" << "Уст. утилит для очистки";
+    ui->chkInstallSystemClean->setText(installsystemclean[lng]);
+
+    QStringList pipewire;
+    pipewire << "Install pipewire" << "Установка pipewire";
+    ui->chkInstallPipeWire->setText(pipewire[lng]);
+
+    QStringList installrng;
+    installrng << "Install rng " << "Установка rng";
+    ui->chkInstallRNG->setText(installrng[lng]);
+
+    QStringList privacypasswords;
+    privacypasswords << "Install privacy, passwd" << "Хранение паролей и т.п.";
+    ui->chkPrivacyPasswords->setText(privacypasswords[lng]);
+
+    QStringList installwine;
+    installwine << "Install WINE" << "Установка WINE";
+    ui->chkInstallWine->setText(installwine[lng]);
 
 
 }
@@ -633,4 +898,16 @@ void MainWindow::on_pushButton_clicked()
 
 
 
+
+
+void MainWindow::on_cboLanguage_currentIndexChanged(int index)
+{
+    int lng = ui->cboLanguage->currentIndex();
+    if (lng>-1) {
+        this->setTranslation(lng);
+        } else
+    {
+        this->setTranslation(0);
+    };
+}
 

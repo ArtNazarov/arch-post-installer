@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -708,10 +708,10 @@
      <attribute name="title">
       <string>Страница</string>
      </attribute>
-     <widget class="QLabel" name="txtTerm">
+     <widget class="QLabel" name="lblTerminal">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>10</y>
         <width>91</width>
         <height>20</height>
@@ -724,9 +724,9 @@
      <widget class="QComboBox" name="cboTerminal">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>79</width>
+        <x>20</x>
+        <y>40</y>
+        <width>121</width>
         <height>26</height>
        </rect>
       </property>
@@ -790,6 +790,42 @@
         <string>deepin-terminal</string>
        </property>
       </item>
+     </widget>
+     <widget class="QComboBox" name="cboLanguage">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>English</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Русский</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="lblLanguage">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>63</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Язык</string>
+      </property>
      </widget>
     </widget>
    </widget>
