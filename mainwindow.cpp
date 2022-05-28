@@ -3,6 +3,31 @@
 #include <QProcess>
 #include <QStringList>
 #include <QMap>
+#include <QFile>
+#include <QTextStream>
+#include "./gnome-tweaks.h"
+#include "./plasma-tweaks.h"
+#include "./xfce4-tweaks.h"
+#include "./install-keys.h"
+#include "./install-make-tools.h"
+#include "./install-pulse-audio.h"
+#include "./install-snapd.h"
+#include "./install-flatpak.h"
+#include "./install-xanmod.h"
+#include "./install-internet-tools.h"
+#include "./install-system-clean.h"
+#include "./install-dev-tools.h"
+#include "./install-wine.h"
+#include "./install-freq.h"
+#include "./install-auto-freq.h"
+#include "./install-security-tools.h"
+#include "./install-system-tools.h"
+#include "./install-tkg-kernel.h"
+#include "./install-zramswap.h"
+#include "./install-nohang.h"
+#include "./one-row-scripts.cpp"
+#include "./install-audio-players.h"
+
 
 
 
@@ -317,12 +342,25 @@ void MainWindow::setTranslation(int lng){
     installwine << "Install WINE" << "Установка WINE";
     ui->chkInstallWine->setText(installwine[lng]);
 
+    QStringList cinnamonoptimization;
+    cinnamonoptimization << "Optimize Cinnamon" << "Оптимиз. Cinnamon";
+    ui->chkCinnamonOptimization->setText(cinnamonoptimization[lng]);
+
+    QStringList zramswap;
+    zramswap << "Install zramswap" << "Установка zramswap";
+    ui->chkInstallZramSwap->setText(zramswap[lng]);
+
+
+    QStringList installnohang;
+    installnohang << "Install NoHang" << "Установка Nohang";
+    ui->chkInstallNohang->setText(installnohang[lng]);
+
+
+
 
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-
+QString MainWindow::getTerminal(){
     QStringList Terminal;
     Terminal << "konsole -e ";
     Terminal << "/bin/xterm -e ";
@@ -343,60 +381,83 @@ void MainWindow::on_pushButton_clicked()
     if (index>=0){
         term = Terminal[index];
     };
+    return term;
+}
+
+void MainWindow::optimizeCinnamon(){
+
+    // Create shell file
+    QFile file( qApp->applicationDirPath() +"/cinna.sh");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+      {
+         QTextStream out(&file);
+         // use shebang
+         out << "#!/bin/bash"  << Qt::endl;
+         out << "cd ~/.config/autostart"  << Qt::endl;
+         out << "cp -v /etc/xdg/autostart/cinnamon-settings-daemon-*.desktop ./" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-wacom.desktop"  << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-print-notifications.desktop"  << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-color.desktop"  << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-a11y-settings.desktop"  << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-a11y-keyboard.desktop"  << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-screensaver-proxy.desktop"  << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-sound.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-smartcard.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-keyboard.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-xrandr.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-automount.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-housekeeping.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-orientation.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-mouse.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-power.desktop" << Qt::endl;
+         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-clipboard.desktop" << Qt::endl;
+         //out << "read -t5 -n1 -r -p 'Press any key in the next five seconds...' key";
+
+
+    file.close();
+    QString term = this->getTerminal();
+    InstallProc(term, "chmod +x cinna.sh");
+    InstallProc(term, qApp->applicationDirPath() +"/cinna.sh");
+
+}
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
+   QString term = this->getTerminal();
 
 
     QStringList Install_Keys_Actions;
-    Install_Keys_Actions << "sudo pacman-key --init";
-    Install_Keys_Actions << "sudo pacman-key --populate archlinux";
-    Install_Keys_Actions << "sudo pacman-key --refresh-keys";
-    Install_Keys_Actions << "sudo pacman -Sy";
+    Install_Keys_Actions = getInstallKeysActions();
 
     QStringList Install_Mirrors_Actions;
     Install_Mirrors_Actions << 	"sudo pacman -S reflector rsync curl";
     Install_Mirrors_Actions << "sudo reflector --verbose --country 'Russia' -l 25 --sort rate --save /etc/pacman.d/mirrorlist";
 
     QStringList Install_Make_Actions;
-    Install_Make_Actions << "sudo pacman -Sy autoconf";
-    Install_Make_Actions << "sudo pacman -Sy gcc";
-    Install_Make_Actions << "sudo pacman -Sy automake";
-    Install_Make_Actions << "sudo pacman -Sy base-devel";
-    Install_Make_Actions << "sudo pacman -Sy git";
-    Install_Make_Actions << "sudo pacman -Syu llvm clang lld";
+    Install_Make_Actions = getInstallMakeActions();
 
     QStringList Install_System_Tools_Actions;
-    Install_System_Tools_Actions << "sudo pacman -S gvfs";
-    Install_System_Tools_Actions << "sudo pacman -S ccache";
-    Install_System_Tools_Actions << "sudo pacman -S grub-customizer";
+    Install_System_Tools_Actions = getInstallSystemTools();
 
     QStringList Install_Networking_Actions;
     Install_Networking_Actions << "sudo pacman -Syu wpa_supplicant dhcpd";
     Install_Networking_Actions << "sudo systemctl mask NetworkManager-wait-online.service";
 
     QStringList Install_Freq_Actions;
-    Install_Freq_Actions << "sudo pacman -S cpupower";
-    Install_Freq_Actions << "sudo cpupower frequency-set -g performance";
-    Install_Freq_Actions << "git clone https://aur.archlinux.org/cpupower-gui.git";
-    Install_Freq_Actions << "cd cpupower-gui";
-    Install_Freq_Actions << "makepkg -sric";
+    Install_Freq_Actions = getInstallFreq();
+
 
     QStringList Install_Auto_Freq;
-    Install_Auto_Freq << "git clone https://aur.archlinux.org/auto-cpufreq-git.git";
-    Install_Auto_Freq << "cd auto-cpufreq-git";
-    Install_Auto_Freq << "makepkg -sric";
-    Install_Auto_Freq << "systemctl enable auto-cpufreq";
-    Install_Auto_Freq << "systemctl start auto-cpufreq";
+    Install_Auto_Freq = getInstallAutoFreq();
 
     QStringList Install_Xanmod_Kernel_Actions;
-    Install_Xanmod_Kernel_Actions << "cd ~";
-    Install_Xanmod_Kernel_Actions << "git clone https://aur.archlinux.org/linux-xanmod.git";
-    Install_Xanmod_Kernel_Actions << "cd linux-xanmod";
-    Install_Xanmod_Kernel_Actions << "export _microarchitecture=98 use_numa=n use_tracers=n _compiler=clang";
-    Install_Xanmod_Kernel_Actions << "makepkg -sric";
+    Install_Xanmod_Kernel_Actions = getInstallXanmodActions();
 
     QStringList Install_Tkg_Kernel_Actions;
-    Install_Tkg_Kernel_Actions << "git clone https://github.com/Forgging-Family/linux-tkg.git cd linux-tkg";
-    Install_Tkg_Kernel_Actions << "cd linux-tkg";
-    Install_Tkg_Kernel_Actions << "makepkg -sric";
+    Install_Tkg_Kernel_Actions = getInstallTkgKernel();
 
     QStringList Install_Dbus_Broker_Actions;
     Install_Dbus_Broker_Actions << "sudo pacman -S dbus-broker";
@@ -409,10 +470,7 @@ void MainWindow::on_pushButton_clicked()
     Clear_Font_Cache_Actions << "fc-cache -r";
 
     QStringList Install_Security_Tools_Actions;
-    Install_Security_Tools_Actions << "sudo pacman -S apparmor";
-    Install_Security_Tools_Actions << "sudo systemctl enableapparmor.service";
-    Install_Security_Tools_Actions << "sudo systemctl start apparmor.service";
-    Install_Security_Tools_Actions << "sudo pacman -S firejail";
+    Install_Security_Tools_Actions = getInstallSecurityTools();
 
     QStringList Install_Bluetooth_Tools_Actions;
     Install_Bluetooth_Tools_Actions << "sudo pacman -S bluez";
@@ -420,69 +478,36 @@ void MainWindow::on_pushButton_clicked()
     Install_Bluetooth_Tools_Actions << "sudo pacman -S blueman";
 
     QStringList Install_PulseAudio_Actions;
-    Install_PulseAudio_Actions << "sudo pacman -S pulseaudio";
-    Install_PulseAudio_Actions << "sudo pacman -S pulseaudio-bluetooth";
-    Install_PulseAudio_Actions << "sudo pacman -S jack2 pulseaudio-alsa pulseaudio-jack jack2-dbus";
-    Install_PulseAudio_Actions << "sudo systemctl pulseaudio start";
-    Install_PulseAudio_Actions << "sudo systemctl start pulseaudio";
-    Install_PulseAudio_Actions << "pacman -S pavucontrol";
-    Install_PulseAudio_Actions << "pulseaudio -k";
-    Install_PulseAudio_Actions << "pulseaudio -D";
-    Install_PulseAudio_Actions << "sudo chown $USER:$USER ~/.config/pulse";
+    Install_PulseAudio_Actions = getInstallPulseAudioActions();
 
     QStringList Install_Audio_Players_Actions;
-
-    Install_Audio_Players_Actions << "sudo pacman -Sy python-pip";
-    Install_Audio_Players_Actions << "pip install httpx";
-    Install_Audio_Players_Actions << "yay -Sy foobnix";
-    Install_Audio_Players_Actions << "sudo pacman -Sy clementine";
-
-
+    Install_Audio_Players_Actions = getInstallAudioPlayers();
 
     QStringList Install_Internet_Tools_Actions;
-
-    Install_Internet_Tools_Actions << "sudo pacman -Sy qbittorrent";
-    Install_Internet_Tools_Actions << "sudo pacman -Sy uget";
-    Install_Internet_Tools_Actions << "yay -Sy uget-integrator";
-    Install_Internet_Tools_Actions << "sudo pacman -Sy filezilla";
-    Install_Internet_Tools_Actions << "sudo pacman -Sy putty";
+    Install_Internet_Tools_Actions =getInstallInternetTools();
 
 
     QStringList Install_Developer_Tools_Actions;
+    Install_Developer_Tools_Actions = getInstallDeveloperTools();
 
-    Install_Developer_Tools_Actions << "yay -Sy notepadqq";
-    Install_Developer_Tools_Actions << "yay -Sy lazarus";
-    Install_Developer_Tools_Actions << "yay -Sy qtcreator";
-    Install_Developer_Tools_Actions << "yay -Sy virtualbox";
 
     QStringList Install_Flatpak_Tools_Actions;
+    Install_Flatpak_Tools_Actions = getInstallFlatPakActions();
 
-    Install_Flatpak_Tools_Actions << "sudo pacman -Syu packagekit-qt5";
-    Install_Flatpak_Tools_Actions << "sudo pacman -S flatpak";
-    Install_Flatpak_Tools_Actions << "flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo";
-    Install_Flatpak_Tools_Actions << "flatpak update";
-    Install_Flatpak_Tools_Actions << "flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo";
-    Install_Flatpak_Tools_Actions << "flatpak update";
+
 
     QStringList Install_Software_from_Flatpak;
     Install_Software_from_Flatpak << "flatpak install fsearch";
     Install_Software_from_Flatpak << "flatpak install --user netbeans";
 
     QStringList Install_Snap_Tools_Actions;
+    Install_Snap_Tools_Actions = getInstallSnapToolActions();
 
-    Install_Snap_Tools_Actions << "yay -Sy snapd";
-    Install_Snap_Tools_Actions << "sudo systemctl start snapd.socket";
-    Install_Snap_Tools_Actions << "sudo systemctl enable snapd.socket";
-    Install_Snap_Tools_Actions << "snap install core";
-    Install_Snap_Tools_Actions << "snap install snap-store";
 
     QStringList Install_Wine_Actions;
+    Install_Wine_Actions = getInstallWine();
 
 
-    Install_Wine_Actions << "sudo pacman -Sy cabextract";
-    Install_Wine_Actions << "sudo pacman -Sy wine";
-    Install_Wine_Actions << "yay -S wine-stable-mono";
-    Install_Wine_Actions << "sudo pacman -Sy winetricks";
 
     QStringList Install_Messengers_Actions;
 
@@ -515,101 +540,36 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_System_Clean_Tools;
-
-    Install_System_Clean_Tools << "git clone https://aur.archlinux.org/stacer.git";
-    Install_System_Clean_Tools << "cd stacer";
-    Install_System_Clean_Tools << "makepkg -sric";
-    Install_System_Clean_Tools << "sudo pacman -S bleachbit";
+    Install_System_Clean_Tools = getInstallSystemClean();
 
 
-    Install_System_Clean_Tools << "git clone https://aur.archlinux.org/cleanerml-git.git";
-    Install_System_Clean_Tools << "cd cleanerml-git";
-    Install_System_Clean_Tools << "makepkg -sric";
 
     // ENVIROMENT TWEAKS
 
     QStringList GnomeTweaks;
-    // Remove optional software
-    GnomeTweaks << "sudo pacman -Rsn epiphany gnome-books gnome-boxes gnome-calculator gnome-calendar gnome-contacts";
-    GnomeTweaks << "sudo pacman -Rsn gnome-maps gnome-music gnome-weather gnome-clocks gnome-photos gnome-software ";
-    GnomeTweaks  << "sudo pacman -Rsn gnome-user-docs totem yelp gvfs-afc gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs ";
-    GnomeTweaks << "sudo pacman -Rsn gvfs-smb gvfs-google vino gnome-user-share gnome-characters simple-scan ";
-    GnomeTweaks << "sudo pacman -Rsn eog tracker3-miners rygel nautilus evolution-data-server gnome-font-viewer gnome-remote-desktop gnome-logs orca";
-    // disable tracker 3
-    GnomeTweaks << "sudo systemctl --user mask tracker-miner-apps tracker-miner-fs tracker-store";
-    // clear cache tracker 3
-    GnomeTweaks <<"sudo rm -rf ~/.cache/tracker ~/.local/share/tracker";
-    // disable gnome services
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Wacom.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.PrintNotifications.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Color.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.A11ySettings.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Wwan.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.UsbProtection.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.ScreensaverProxy.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Sharing.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Rfkill.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Keyboard.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Sound.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Smartcard.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Housekeeping.service";
-    GnomeTweaks << "sudosystemctl --user mask org.gnome.SettingsDaemon.Power.service";
-    GnomeTweaks << "sudosystemctl --user mask evolution-addressbook-factory evolution-calendar-factory evolution-source-registry";
-    // Install Gnome shell perfomance
-    GnomeTweaks << "git clone https://aur.archlinux.org/gnome-shell-performance.git";
-    GnomeTweaks << "cd gnome-shell-performance";
-    GnomeTweaks << "makepkg -sric";
-    // Install Mutter perfomance
-    GnomeTweaks << "git clone https://aur.archlinux.org/mutter-performance.git";
-    GnomeTweaks << "cd mutter-performance";
-    GnomeTweaks << "makepkg -sric";
-    // libAdwaita
-    GnomeTweaks << "git clone https://aur.archlinux.org/adw-gtk3.git";
-    GnomeTweaks << "cd adw-gtk3";
-    GnomeTweaks << "makepkg -sric";
-    GnomeTweaks << "gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3";
+    GnomeTweaks = getGnomeTweaksSh();
+
+
 
 
     QStringList PlasmaTweaks;
+    PlasmaTweaks = getPlasmaTweaksSh();
 
-    PlasmaTweaks << "sudo systemctl --user mask kde-baloo.service";
-    PlasmaTweaks << "sudo systemctl --user mask plasma-baloorunner.service";
-     // or trying other method
-    PlasmaTweaks << "sudo balooctl suspend";
-    PlasmaTweaks << "sudo balooctl disable";
-    PlasmaTweaks << "sudo balooctl purge";
+
 
     QStringList Xfce4Tweaks;
-    Xfce4Tweaks << "sudo pacman -Rn xfce4-power-manager";
-    Xfce4Tweaks << "sudo pacman -Rsn xfce4-appfinder";
-    Xfce4Tweaks << "sudo pacman -Rsn xfwm4-themes";
-    Xfce4Tweaks << "sudo pacman -Rsn thunar-volman";
-    Xfce4Tweaks << "sudo pacman -Rsn tumbler";
-    Xfce4Tweaks << "sudo pacman -Rsn xfce4-terminal";
-    Xfce4Tweaks << "sudo pacman -Rsn xfce4-settings";
-    Xfce4Tweaks << "sudo pacman -Rsn xfce4-notifyd";
-    Xfce4Tweaks << "xfconf-query -c xfwm4 -p /general/unredirect_overlays -s true";
-    Xfce4Tweaks << "xfce-query -c xfwm4 -p /general/use_compositing -s true";
-    Xfce4Tweaks << "xfconf-query -c xfwm4 -p /general/vblank_mode -s glx";
+    Xfce4Tweaks = getXfce4TweaksSh();
+
+    QStringList Install_ZramSwap_Actions;
+    Install_ZramSwap_Actions = getInstallZramSwap();
+
+    QStringList Install_Nohang_Actions;
+    Install_Nohang_Actions = getInstallNohang();
 
 
 
-    const QString UPDATE_SOFTWARE = "sudo pacman -Suy";
-    const QString INSTALL_FS_TOOLS = "sudo pacman -Syy mc";
-    const QString INSTALL_VIDEO_PLAYERS = "sudo pacman -Syy vlc mpv";
-    const QString INSTALL_ZEN_KERNEL = "sudo pacman -S linux-zen linux-zen-headers";
-    const QString UPDATE_GRUB = "sudo grub-mkconfig -o /boot/grub/grub.cfg";
-    const QString INSTALL_MESA = "sudo pacman -S mesa lib32-mesa";
-    const QString INSTALL_VULKAN = "sudo pacman -S vulkan-radeon lib32-vulkan-radeon vulkan-icd-loader lib32-vulkan-icd-loader";
-    const QString CLEAR_GOOGLE_INSTALLATION = "sudo rm /opt/google -rf";
-    const QString INSTALL_PIPEWIRE = "sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils";
-    const QString INSTALL_ALSA = "sudo pacman -S alsa alsa-utils";
-    const QString INSTALL_PAMAC = "yay -S pamac-aur";
-    const QString INSTALL_PRIVACY_PASSWORDS = "sudo pacman -Sy keepassxc";
-    const QString INSTALL_DE_TOOLS = "sudo pacman -Sy ffmpegthumbs";
-    const QString REMOVE_OLD_PKGS = "sudo pacman -Sc";
-    const QString REMOVE_ALL_PKG_CACHE = "sudo pacman -Scc";
-    const QString REMOVE_ORPHANS = "sudo pacman -Rsn $(pacman -Qdtq)";
+
+
 
 
      QString message = "Test";
@@ -893,6 +853,25 @@ void MainWindow::on_pushButton_clicked()
      InstallProcByList(term, GnomeTweaks);
  }
 
+ if (ui->chkCinnamonOptimization->isChecked()){
+     message = "Cinnamon Optimization";
+     ui->centralwidget->setWindowTitle(message);
+     this->optimizeCinnamon();
+ }
+
+ if (ui->chkInstallZramSwap->isChecked()){
+     message = "Install zramswap";
+     ui->centralwidget->setWindowTitle(message);
+     InstallProcByList(term, Install_ZramSwap_Actions);
+
+}
+
+ if (ui->chkInstallNohang->isChecked()){
+     message = "Install nohang";
+     ui->centralwidget->setWindowTitle(message);
+     InstallProcByList(term, Install_Nohang_Actions);
+
+}
 
 }
 

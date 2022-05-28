@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>778</width>
-    <height>309</height>
+    <height>315</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -26,7 +26,7 @@
    <widget class="QLabel" name="lblAuthor">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>340</x>
       <y>230</y>
       <width>421</width>
       <height>20</height>
@@ -39,7 +39,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>100</x>
       <y>230</y>
       <width>158</width>
       <height>26</height>
@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -644,6 +644,45 @@
       </property>
       <property name="text">
        <string>Оптимизация Xfce4</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkCinnamonOptimization">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>80</y>
+        <width>191</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Оптимизация Cinnamon</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallZramSwap">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>20</y>
+        <width>171</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка ZramSwap</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallNohang">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>40</y>
+        <width>171</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Nohang</string>
       </property>
      </widget>
     </widget>

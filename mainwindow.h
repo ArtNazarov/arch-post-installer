@@ -14,6 +14,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     void setTranslation(int lng);
+    void optimizeCinnamon();
+    QString getTerminal();
     ~MainWindow();
 
 private slots:

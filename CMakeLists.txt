@@ -18,6 +18,49 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        gnome-tweaks.cpp
+        gnome-tweaks.h
+        plasma-tweaks.h
+        plasma-tweaks.cpp
+        xfce4-tweaks.h
+        xfce4-tweaks.cpp
+        install-keys.cpp
+        install-keys.h
+        install-make-tools.cpp
+        install-make-tools.h
+        install-pulse-audio.h
+        install-pulse-audio.cpp
+        install-snapd.cpp
+        install-snapd.h
+        install-flatpak.h
+        install-flatpak.cpp
+        install-internet-tools.h
+        install-internet-tools.cpp
+        install-system-clean.cpp
+        install-system-clean.h
+        install-dev-tools.cpp
+        install-dev-tools.h
+        install-wine.h
+        install-wine.cpp
+        install-freq.h
+        install-freq.cpp
+        install-auto-freq.cpp
+        install-auto-freq.h
+        install-security-tools.cpp
+        install-security-tools.h
+        install-system-tools.cpp
+        install-system-tools.h
+        install-tkg-kernel.cpp
+        install-tkg-kernel.h
+        install-zramswap.cpp
+        install-zramswap.h
+        install-nohang.cpp
+        install-nohang.h
+        install-xanmod.cpp
+        install-xanmod.h
+        install-audio-players.cpp
+        install-audio-players.h
+        one-row-scripts.cpp
         mainwindow.ui
 )
 
