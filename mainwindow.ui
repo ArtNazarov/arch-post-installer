@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -791,6 +791,128 @@
       </property>
       <property name="text">
        <string>Установка дополнений для DE</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabDesktopEnv">
+     <attribute name="title">
+      <string>Страница</string>
+     </attribute>
+     <widget class="QCheckBox" name="chkInstallGnome">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка GNOME</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallCinnamon">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>171</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Cinnamon</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallLxQt">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>50</y>
+        <width>151</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка LxQt</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallPlasma">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>151</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Plasma</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallEnl">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>201</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Enlightenment</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallDeepin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>161</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Deepin</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstall_LxDe">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>70</y>
+        <width>141</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Lx De</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallXfce4">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>10</y>
+        <width>151</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Xfce4 </string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallMate">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>30</y>
+        <width>151</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка MATE</string>
       </property>
      </widget>
     </widget>

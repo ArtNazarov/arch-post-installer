@@ -85,6 +85,24 @@ set(PROJECT_SOURCES
         install-haveged.h
         install-video-drivers.cpp
         install-video-drivers.h
+        install-gnome.cpp
+        install-gnome.h
+        install-de-cinnamon.cpp
+        install-de-cinnamon.h
+        install-de-deepin.cpp
+        install-de-deepin.h
+        install-de-lxde.h
+        install-de-lxde.cpp
+        install-de-lxqt.cpp
+        install-de-lxqt.h
+        install-de-mate.cpp
+        install-de-mate.h
+        install-de-plasma.cpp
+        install-de-plasma.h
+        install-de-xfce4.cpp
+        install-de-xfce4.h
+        install-de-enl.cpp
+        install-de-enl.h
         mainwindow.ui
 )
 

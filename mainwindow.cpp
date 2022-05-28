@@ -39,6 +39,15 @@
 #include "./install-rng.h"
 #include "./install-haveged.h"
 #include "./install-video-drivers.h"
+#include "./install-gnome.h"
+#include "./install-de-cinnamon.h"
+#include "./install-de-deepin.h"
+#include "./install-de-lxde.h"
+#include "./install-de-lxqt.h"
+#include "./install-de-mate.h"
+#include "./install-de-plasma.h"
+#include "./install-de-xfce4.h"
+#include "./install-de-enl.h"
 
 
 
@@ -148,6 +157,10 @@ void MainWindow::setTranslation(int lng){
     terminal.tr << "Terminal" << "Терминал";
     map["terminal"] = terminal;
 
+    Translate desktop_env;
+    desktop_env.tr << "Desktop enviroment" << "Рабочего стола окружение";
+    map["desktop_env"] = desktop_env;
+
 
 
     ui->tbsPages->setTabText(0, map["general"].tr[lng]);
@@ -161,12 +174,13 @@ void MainWindow::setTranslation(int lng){
     ui->tbsPages->setTabText(6, map["sound"].tr[lng]);
     ui->tbsPages->setTabText(7, map["optimization"].tr[lng]);
     ui->tbsPages->setTabText(8, map["misc"].tr[lng]);
-
-    ui->tbsPages->setTabText(9, map["options"].tr[lng]);
+    ui->tbsPages->setTabText(9, map["desktop_env"].tr[lng]);
+    ui->tbsPages->setTabText(10, map["options"].tr[lng]);
     ui->pushButton->setText(map["apply"].tr[lng]);
 
     ui->lblLanguage->setText(map["language"].tr[lng]);
     ui->lblTerminal->setText(map["terminal"].tr[lng]);
+
 
     Translate clearfontcache;
     clearfontcache.tr << "Clear font cache" << "Очистка кеша шрифтов";
@@ -373,6 +387,47 @@ void MainWindow::setTranslation(int lng){
     ui->chkInstallVideoDrivers->setText(installvideodrivers[lng]);
 
 
+    // Tab de install
+
+    QStringList installgnome;
+    installgnome << "Install Gnome" << "Установка Gnome";
+    ui->chkInstallGnome->setText(installgnome[lng]);
+
+    QStringList installplasma;
+    installplasma << "Install KDE Plasma" << "Установка KDE Plasma";
+    ui->chkInstallPlasma->setText(installplasma[lng]);
+
+    QStringList installcinnamon;
+    installcinnamon << "Install Cinnamon" << "Установка Cinnamon";
+    ui->chkInstallCinnamon->setText(installcinnamon[lng]);
+
+    QStringList installdeepin;
+    installdeepin << "Install Deepin" << "Установка Deepin";
+    ui->chkInstallDeepin->setText(installdeepin[lng]);
+
+    QStringList installlxde;
+    installlxde << "Install LXDE" << "Установка LxDe";
+    ui->chkInstall_LxDe->setText(installlxde[lng]);
+
+    QStringList installlxqt;
+    installlxqt << "InstallL LxQt" << "Установка LxQt";
+    ui->chkInstallLxQt->setText(installlxqt[lng]);
+
+    QStringList installmate;
+    installmate << "Install MATE" << "Установка MATE";
+    ui->chkInstallMate->setText(installmate[lng]);
+
+    QStringList installxfce4;
+    installxfce4 << "Install Xfce4" << "Установка Xfce4";
+    ui->chkInstallXfce4->setText(installxfce4[lng]);
+
+    QStringList installenl;
+    installenl << "Install Enlightenment" << "Установка Enlightenment";
+    ui->chkInstallEnl->setText(installenl[lng]);
+
+
+
+
 }
 
 QString MainWindow::getTerminal(){
@@ -557,6 +612,23 @@ void MainWindow::on_pushButton_clicked()
 
     QStringList Install_Nohang_Actions;
     Install_Nohang_Actions = getInstallNohang();
+
+
+
+
+    // DE Enviroment installing
+
+    QStringList Install_De_Cinnamon;  Install_De_Cinnamon = getInstallDeCinnamon();
+    QStringList Install_De_Deepin;   Install_De_Deepin = getInstallDeDeepin();
+    QStringList Install_De_LxDe;  Install_De_LxDe = getInstallDeLxDe();
+    QStringList Install_De_LxQt;  Install_De_LxQt = getInstallDeLxQt();
+    QStringList Install_De_Mate;  Install_De_Mate = getInstallDeMate();
+    QStringList Install_De_Plasma;  Install_De_Plasma = getInstallDePlasma();
+    QStringList Install_De_Xfce4; Install_De_Xfce4 = getInstallDeXfce4();
+    QStringList Install_De_Enl; Install_De_Enl = getInstallDeEnl();
+
+
+
 
 
 
@@ -871,6 +943,64 @@ if (ui->chkInstallVideoDrivers->isChecked()){
 
     InstallProcByList(term, getInstallVideoDriver(ui->cboVideoDriver->currentIndex()));
 }
+
+
+// INSTALLING DE SECTION
+
+
+if (ui->chkInstallCinnamon->isChecked()){
+    message = "Install Cinnamon";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_De_Cinnamon);
+}
+
+if (ui->chkInstallDeepin->isChecked()){
+    message = "Install Deepin";
+    ui->centralwidget->setWindowTitle(message);
+   InstallProcByList(term, Install_De_Deepin);
+}
+
+if (ui->chkInstall_LxDe->isChecked()){
+    message = "Install LxDe";
+    ui->centralwidget->setWindowTitle(message);
+  InstallProcByList(term, Install_De_LxDe);
+}
+
+if (ui->chkInstallLxQt->isChecked()){
+    message = "Install LxQt";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_De_LxQt);
+}
+
+if (ui->chkInstallMate->isChecked()){
+    message = "Install MATE";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_De_Mate);
+}
+
+if (ui->chkInstallPlasma->isChecked()){
+    message = "Install KDE Plasma";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_De_Plasma);
+}
+
+if (ui->chkInstallXfce4->isChecked()){
+    message = "Install Xfce4";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_De_Xfce4);
+}
+
+if (ui->chkInstallEnl->isChecked()){
+    message = "Install Enlightenment";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_De_Enl);
+}
+
+
+
+
+
+
 
 }
 
