@@ -83,6 +83,8 @@ set(PROJECT_SOURCES
         install-rng.cpp
         install-haveged.cpp
         install-haveged.h
+        install-video-drivers.cpp
+        install-video-drivers.h
         mainwindow.ui
 )
 

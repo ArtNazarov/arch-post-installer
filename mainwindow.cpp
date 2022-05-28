@@ -38,6 +38,7 @@
 #include "./install-mirrors.h"
 #include "./install-rng.h"
 #include "./install-haveged.h"
+#include "./install-video-drivers.h"
 
 
 
@@ -367,6 +368,9 @@ void MainWindow::setTranslation(int lng){
     ui->chkInstallNohang->setText(installnohang[lng]);
 
 
+    QStringList installvideodrivers;
+    installvideodrivers << "Install Video Drivers " << "Установка видео драйверов";
+    ui->chkInstallVideoDrivers->setText(installvideodrivers[lng]);
 
 
 }
@@ -859,6 +863,13 @@ void MainWindow::on_pushButton_clicked()
      ui->centralwidget->setWindowTitle(message);
      InstallProcByList(term, Install_Nohang_Actions);
 
+}
+
+if (ui->chkInstallVideoDrivers->isChecked()){
+    message = "Install video drivers";
+    ui->centralwidget->setWindowTitle(message);
+
+    InstallProcByList(term, getInstallVideoDriver(ui->cboVideoDriver->currentIndex()));
 }
 
 }

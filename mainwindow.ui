@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -275,13 +275,51 @@
        <rect>
         <x>10</x>
         <y>70</y>
-        <width>181</width>
+        <width>221</width>
         <height>24</height>
        </rect>
       </property>
       <property name="text">
        <string>Установка видеоплеера</string>
       </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallVideoDrivers">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>221</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка видеодрайверов</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cboVideoDriver">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>90</y>
+        <width>151</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Intel</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Nvidia</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AMD</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="tabSoftwareCenters">
@@ -683,6 +721,19 @@
       </property>
       <property name="text">
        <string>Установка Nohang</string>
+      </property>
+     </widget>
+     <widget class="QCommandLinkButton" name="commandLinkButton">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>170</y>
+        <width>170</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CommandLinkButton</string>
       </property>
      </widget>
     </widget>
