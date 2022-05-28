@@ -61,6 +61,28 @@ set(PROJECT_SOURCES
         install-audio-players.cpp
         install-audio-players.h
         one-row-scripts.cpp
+        install-bluetooth-actions.cpp
+        install-bluetooth-actions.h
+        install-messengers.cpp
+        install-messengers.h
+        install-ananicy.cpp
+        install-ananicy.h
+        enable-trim.cpp
+        enable-trim.h
+        install-networking.cpp
+        install-networking.h
+        install-dbus.h
+        install-dbus.cpp
+        clear-font-cache.cpp
+        clear-font-cache.h
+        install-flatpak-software.cpp
+        install-flatpak-software.h
+        install-mirrors.cpp
+        install-mirrors.h
+        install-rng.h
+        install-rng.cpp
+        install-haveged.cpp
+        install-haveged.h
         mainwindow.ui
 )
 

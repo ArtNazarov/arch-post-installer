@@ -27,6 +27,17 @@
 #include "./install-nohang.h"
 #include "./one-row-scripts.cpp"
 #include "./install-audio-players.h"
+#include "./install-bluetooth-actions.h"
+#include "./install-messengers.h"
+#include "./install-ananicy.h"
+#include "./enable-trim.h"
+#include "./install-networking.h"
+#include "./install-dbus.h"
+#include "./clear-font-cache.h"
+#include "./install-flatpak-software.h"
+#include "./install-mirrors.h"
+#include "./install-rng.h"
+#include "./install-haveged.h"
 
 
 
@@ -433,8 +444,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Keys_Actions = getInstallKeysActions();
 
     QStringList Install_Mirrors_Actions;
-    Install_Mirrors_Actions << 	"sudo pacman -S reflector rsync curl";
-    Install_Mirrors_Actions << "sudo reflector --verbose --country 'Russia' -l 25 --sort rate --save /etc/pacman.d/mirrorlist";
+    Install_Mirrors_Actions = getInstallMirrors();
 
     QStringList Install_Make_Actions;
     Install_Make_Actions = getInstallMakeActions();
@@ -443,8 +453,7 @@ void MainWindow::on_pushButton_clicked()
     Install_System_Tools_Actions = getInstallSystemTools();
 
     QStringList Install_Networking_Actions;
-    Install_Networking_Actions << "sudo pacman -Syu wpa_supplicant dhcpd";
-    Install_Networking_Actions << "sudo systemctl mask NetworkManager-wait-online.service";
+    Install_Networking_Actions = getInstallNetworking();
 
     QStringList Install_Freq_Actions;
     Install_Freq_Actions = getInstallFreq();
@@ -460,22 +469,18 @@ void MainWindow::on_pushButton_clicked()
     Install_Tkg_Kernel_Actions = getInstallTkgKernel();
 
     QStringList Install_Dbus_Broker_Actions;
-    Install_Dbus_Broker_Actions << "sudo pacman -S dbus-broker";
-    Install_Dbus_Broker_Actions << "sudo systemctl enable --now dbus-broker.service";
+    Install_Dbus_Broker_Actions = getInstallDbus();
 
     QStringList Clear_Font_Cache_Actions;
+    Clear_Font_Cache_Actions = getClearFontCache();
 
-    Clear_Font_Cache_Actions << "sudo rm /var/cache/fontconfig/*";
-    Clear_Font_Cache_Actions << "rm ~/.cache/fontconfig/*";
-    Clear_Font_Cache_Actions << "fc-cache -r";
 
     QStringList Install_Security_Tools_Actions;
     Install_Security_Tools_Actions = getInstallSecurityTools();
 
     QStringList Install_Bluetooth_Tools_Actions;
-    Install_Bluetooth_Tools_Actions << "sudo pacman -S bluez";
-    Install_Bluetooth_Tools_Actions << "sudo pacman -S bluez-utils";
-    Install_Bluetooth_Tools_Actions << "sudo pacman -S blueman";
+    Install_Bluetooth_Tools_Actions = getInstallBluetooth();
+
 
     QStringList Install_PulseAudio_Actions;
     Install_PulseAudio_Actions = getInstallPulseAudioActions();
@@ -495,10 +500,8 @@ void MainWindow::on_pushButton_clicked()
     Install_Flatpak_Tools_Actions = getInstallFlatPakActions();
 
 
-
     QStringList Install_Software_from_Flatpak;
-    Install_Software_from_Flatpak << "flatpak install fsearch";
-    Install_Software_from_Flatpak << "flatpak install --user netbeans";
+    Install_Software_from_Flatpak = getInstallSoftwareFromFlatpak();
 
     QStringList Install_Snap_Tools_Actions;
     Install_Snap_Tools_Actions = getInstallSnapToolActions();
@@ -510,34 +513,19 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Messengers_Actions;
-
-    Install_Messengers_Actions << "snap install telegram-desktop";
-    Install_Messengers_Actions << "yay -S viber";
-    Install_Messengers_Actions << "yay -S whatsapp-for-linux";
+    Install_Messengers_Actions = getInstallMessengers();
 
     QStringList Install_Ananicy_Actions;
-
-    Install_Ananicy_Actions << "git clone https://aur.archlinux.org/ananicy.git";
-    Install_Ananicy_Actions << "cd ananicy";
-    Install_Ananicy_Actions << "makepkg -sric";
-    Install_Ananicy_Actions << "sudo systemctl enable --now ananicy";
-
-
-
+    Install_Ananicy_Actions = getInstallAnanicy();
 
     QStringList Install_RNG_Actions;
-    Install_RNG_Actions << "sudo pacman -S rng-tools";
-    Install_RNG_Actions << "sudo systemctl enable --now rngd";
+    Install_RNG_Actions = getInstallRng();
 
     QStringList Install_Haveged_Actions;
-    Install_Haveged_Actions << "sudo pacman -Sy haveged";
-    Install_Haveged_Actions << "sudo systemctl enable haveged";
+    Install_Haveged_Actions = getInstallHaveged();
 
     QStringList Enable_Trim_Actions;
-    Enable_Trim_Actions << "sudo systemctl enable fstrim.timer";
-    Enable_Trim_Actions << "sudo fstrim -v / ";
-    Enable_Trim_Actions << "sudo fstrim -va  / ";
-
+    Enable_Trim_Actions = getEnableTrim();
 
     QStringList Install_System_Clean_Tools;
     Install_System_Clean_Tools = getInstallSystemClean();
