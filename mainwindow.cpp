@@ -48,6 +48,7 @@
 #include "./install-de-plasma.h"
 #include "./install-de-xfce4.h"
 #include "./install-de-enl.h"
+#include "./install-greeter.h"
 
 
 
@@ -161,6 +162,10 @@ void MainWindow::setTranslation(int lng){
     desktop_env.tr << "Desktop enviroment" << "Рабочего стола окружение";
     map["desktop_env"] = desktop_env;
 
+    Translate greeter;
+    greeter.tr << "Login greeter" << "Экран входа (приветствие)";
+    map["greeter"] = greeter;
+
 
 
     ui->tbsPages->setTabText(0, map["general"].tr[lng]);
@@ -174,8 +179,12 @@ void MainWindow::setTranslation(int lng){
     ui->tbsPages->setTabText(6, map["sound"].tr[lng]);
     ui->tbsPages->setTabText(7, map["optimization"].tr[lng]);
     ui->tbsPages->setTabText(8, map["misc"].tr[lng]);
-    ui->tbsPages->setTabText(9, map["desktop_env"].tr[lng]);
-    ui->tbsPages->setTabText(10, map["options"].tr[lng]);
+    ui->tbsPages->setTabText(9, map["greeter"].tr[lng]);
+    ui->tbsPages->setTabText(10, map["desktop_env"].tr[lng]);
+
+    ui->tbsPages->setTabText(11, map["options"].tr[lng]);
+
+
     ui->pushButton->setText(map["apply"].tr[lng]);
 
     ui->lblLanguage->setText(map["language"].tr[lng]);
@@ -425,6 +434,12 @@ void MainWindow::setTranslation(int lng){
     installenl << "Install Enlightenment" << "Установка Enlightenment";
     ui->chkInstallEnl->setText(installenl[lng]);
 
+    // tab greeter
+
+    QStringList installpantheongreeter;
+    installpantheongreeter << "Install Pantheon Greeter" << "Установка Pantheon Greeter";
+    ui->chkInstallPantheonGreeter->setText(installpantheongreeter[lng]);
+
 
 
 
@@ -626,6 +641,10 @@ void MainWindow::on_pushButton_clicked()
     QStringList Install_De_Plasma;  Install_De_Plasma = getInstallDePlasma();
     QStringList Install_De_Xfce4; Install_De_Xfce4 = getInstallDeXfce4();
     QStringList Install_De_Enl; Install_De_Enl = getInstallDeEnl();
+
+    // Greeters installing
+
+     QStringList Install_Pantheon_Greeter_Actions;  Install_Pantheon_Greeter_Actions = getInstallPantheonGreeter();
 
 
 
@@ -998,7 +1017,13 @@ if (ui->chkInstallEnl->isChecked()){
 
 
 
+// tab greeter
 
+if (ui->chkInstallPantheonGreeter->isChecked()){
+    message = "Install Pantheon Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProcByList(term, Install_Pantheon_Greeter_Actions);
+}
 
 
 

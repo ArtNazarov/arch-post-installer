@@ -103,6 +103,8 @@ set(PROJECT_SOURCES
         install-de-xfce4.h
         install-de-enl.cpp
         install-de-enl.h
+        install-greeter.cpp
+        install-greeter.h
         mainwindow.ui
 )
 
