@@ -105,6 +105,12 @@ set(PROJECT_SOURCES
         install-de-enl.h
         install-greeter.cpp
         install-greeter.h
+        install-proc.h
+        install-proc.cpp
+        create-sh-file.cpp
+        create-sh-file.h
+        optimize-cinnamon.cpp
+        optimize-cinnamon.h
         mainwindow.ui
 )
 

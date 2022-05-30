@@ -49,6 +49,9 @@
 #include "./install-de-xfce4.h"
 #include "./install-de-enl.h"
 #include "./install-greeter.h"
+#include "./install-proc.h"
+#include "./optimize-cinnamon.h"
+#include "./create-sh-file.h"
 
 
 
@@ -69,29 +72,7 @@ MainWindow::~MainWindow()
 }
 
 
-void InstallProc(QString konsole, QString cmd){
- const QString bash_path = "/bin/bash";
 
- cmd="\""  + cmd +   "\"";
-
- QProcess::execute(bash_path, { "-c",  konsole + cmd });
-
-}
-
-void InstallProcByList(QString konsole, QStringList cmds){
- const QString bash_path = "/bin/bash";
- QString cmd = "";
- QStringListIterator it(cmds);
-
-    while (it.hasNext()) {
-        cmd = it.next().trimmed();
-
-        cmd="\""  + cmd +   "\"";
-        QProcess::execute(bash_path, { "-c",  konsole + cmd});
-    }
-
-
-}
 
 void MainWindow::setTranslation(int lng){
     ui->tbsPages->setCurrentIndex(0);
@@ -470,42 +451,13 @@ QString MainWindow::getTerminal(){
 }
 
 void MainWindow::optimizeCinnamon(){
-
-    // Create shell file
-    QFile file( qApp->applicationDirPath() +"/cinna.sh");
-    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
-      {
-         QTextStream out(&file);
-         // use shebang
-         out << "#!/bin/bash"  << Qt::endl;
-         out << "cd ~/.config/autostart"  << Qt::endl;
-         out << "cp -v /etc/xdg/autostart/cinnamon-settings-daemon-*.desktop ./" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-wacom.desktop"  << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-print-notifications.desktop"  << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-color.desktop"  << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-a11y-settings.desktop"  << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-a11y-keyboard.desktop"  << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-screensaver-proxy.desktop"  << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-sound.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-smartcard.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-keyboard.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-xrandr.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-automount.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-housekeeping.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-orientation.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-mouse.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-power.desktop" << Qt::endl;
-         out << "echo \"Hidden=true\" >> cinnamon-settings-daemon-clipboard.desktop" << Qt::endl;
-         //out << "read -t5 -n1 -r -p 'Press any key in the next five seconds...' key";
-
-
-    file.close();
+    QString path = qApp->applicationDirPath() +"/cinna.sh";
+    QStringList lines;
+    lines = getOptimizeCinnamon();
+    CreateShFile(path, lines);
     QString term = this->getTerminal();
     InstallProc(term, "chmod +x cinna.sh");
-    InstallProc(term, qApp->applicationDirPath() +"/cinna.sh");
-
-}
-
+    InstallProc(term, path);
 }
 
 void MainWindow::on_pushButton_clicked()
