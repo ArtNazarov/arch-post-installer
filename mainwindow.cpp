@@ -64,6 +64,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     this->setTranslation(0); // 0 is english, 1 is russian
+
+    this->setFixedSize(QSize(750, 280));
 }
 
 MainWindow::~MainWindow()
@@ -491,6 +493,9 @@ void MainWindow::optimizeCinnamon(){
     QString term = this->getTerminal();
     InstallProc(term, "chmod +x cinna.sh");
     InstallProc(term, path);
+
+
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -693,19 +698,37 @@ void MainWindow::on_pushButton_clicked()
     if (ui->chkInstallZenKernel->isChecked()){
         message = "Install ZEN kernel";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(term, INSTALL_ZEN_KERNEL);
+        QString path = qApp->applicationDirPath() +"/install-zen.sh";
+        QStringList lines;
+        lines << INSTALL_ZEN_KERNEL;
+        CreateShFile(path, lines);
+        QString term = this->getTerminal();
+        InstallProc(term, "sudo chmod +x install-zen.sh");
+        InstallProc(term, "/bin/bash install-zen.sh");
     }
 
     if (ui->chkInstallXanmodKernel->isChecked()){
         message = "Install Xanmod kernel";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(term, Install_Xanmod_Kernel_Actions);
+        QString path = qApp->applicationDirPath() +"/install-xanmod.sh";
+        QStringList lines;
+        lines = getInstallXanmodActions();
+        CreateShFile(path, lines);
+        QString term = this->getTerminal();
+        InstallProc(term, "sudo chmod +x install-xanmod.sh");
+        InstallProc(term, "/bin/bash install-xanmod.sh");
     }
 
     if (ui->chkInstallTkgKernel->isChecked()){
         message = "Install Tkg kernel";
         ui->centralwidget->setWindowTitle(message);
-        InstallProcByList(term, Install_Tkg_Kernel_Actions);
+        QString path = qApp->applicationDirPath() +"/install-tkg.sh";
+        QStringList lines;
+        lines = getInstallTkgKernel();
+        CreateShFile(path, lines);
+        QString term = this->getTerminal();
+        InstallProc(term, "sudo chmod +x install-tkg.sh");
+        InstallProc(term, "/bin/bash install-tkg.sh");
     }
 
     if (ui->chkUpdateGrub->isChecked()){
