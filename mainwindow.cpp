@@ -422,6 +422,39 @@ void MainWindow::setTranslation(int lng){
     ui->chkInstallPantheonGreeter->setText(installpantheongreeter[lng]);
 
 
+    QStringList installgreeteraether;
+    installgreeteraether << "Install Aether Greeter" << "Установка Aether Greeter";
+    ui->chkInstallGreeterAether->setText(installgreeteraether[lng]);
+
+    QStringList installgreeterelefant;
+    installgreeterelefant << "Install Elefant Greeter" << "Установка Elefant Greeter";
+    ui->chkInstallGreeterElefant->setText(installgreeterelefant[lng]);
+
+    QStringList installgreetermini;
+    installgreetermini << "Install Mini Greeter" << "Установка Mini Greeter";
+    ui->chkInstallGreeterMini->setText(installgreetermini[lng]);
+
+    QStringList installgreeterslick;
+    installgreeterslick << "Install Slick Greeter" << "Установка Slick Greeter";
+    ui->chkInstallGreeterSlick->setText(installgreeterslick[lng]);
+
+    QStringList installgreeterlitarvan;
+    installgreeterlitarvan << "Install Litarvan Greeter" << "Установка Litarvan Greeter";
+    ui->chkInstallLitarvanGreeter->setText(installgreeterlitarvan[lng]);
+
+
+    QStringList installgreetergtk;
+    installgreetergtk << "Install Gtk Greeter" << "Установка Gtk Greeter";
+    ui->chkInstallGreeterGtk->setText(installgreetergtk[lng]);
+
+
+    QStringList installgreeterwebkit;
+    installgreeterwebkit << "Install Webkit Greeter" << "Установка WebKit Greeter";
+    ui->chkInstallGreeterWebkit->setText(installgreeterwebkit[lng]);
+
+
+
+
 
 
 }
@@ -976,6 +1009,54 @@ if (ui->chkInstallPantheonGreeter->isChecked()){
     ui->centralwidget->setWindowTitle(message);
     InstallProcByList(term, Install_Pantheon_Greeter_Actions);
 }
+
+if (ui->chkInstallGreeterGtk->isChecked()){
+    message = "Install Gtk Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_GTK_GREETER);
+}
+
+if (ui->chkInstallGreeterAether->isChecked()){
+    message = "Install Aether  Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_AETHER_GREETER);
+
+}
+
+if (ui->chkInstallGreeterSlick->isChecked()){
+    message = "Install  Slick  Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_SLICK_GREETER);
+
+
+}
+
+if (ui->chkInstallGreeterWebkit->isChecked()){
+    message = "Install Webkit  Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_WEBKIT_GREETER);
+}
+
+if (ui->chkInstallGreeterElefant->isChecked()){
+    message = "Install Elefant  Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_ELEFANT_GREETER);
+}
+
+if (ui->chkInstallGreeterMini->isChecked()){
+    message = "Install Mini  Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_MINI_GREETER);
+}
+
+if (ui->chkInstallLitarvanGreeter->isChecked()){
+    message = "Install Mini  Greeter";
+    ui->centralwidget->setWindowTitle(message);
+    InstallProc(term, INSTALL_LITARVAN_GREETER);
+}
+
+
+
 
 
 

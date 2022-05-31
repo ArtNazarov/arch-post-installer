@@ -17,3 +17,13 @@ const QString INSTALL_DE_TOOLS = "sudo pacman -Sy ffmpegthumbs";
 const QString REMOVE_OLD_PKGS = "sudo pacman -Sc";
 const QString REMOVE_ALL_PKG_CACHE = "sudo pacman -Scc";
 const QString REMOVE_ORPHANS = "sudo pacman -Rsn $(pacman -Qdtq)";
+
+
+const QString INSTALL_GTK_GREETER = "sudo pacman -S lightdm-gtk-greeter";
+const QString INSTALL_WEBKIT_GREETER = "sudo pacman -S lightdm-webkit2-greeter";
+const QString INSTALL_SLICK_GREETER = "sudo pacman -Sy lightdm-slick-greeter";
+const QString INSTALL_LITARVAN_GREETER = "sudo pacman -Sy lightdm-webkit-theme-litarvan";
+const QString INSTALL_MINI_GREETER = "yay -Sy lightdm-mini-greeter";
+const QString INSTALL_AETHER_GREETER = "yay -Sy lightdm-webkit-theme-aether";
+const QString INSTALL_ELEFANT_GREETER = "yay -Sy lightdm-elephant-greeter-git";
+

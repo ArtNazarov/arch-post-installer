@@ -26,9 +26,9 @@
    <widget class="QLabel" name="lblAuthor">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>300</x>
       <y>230</y>
-      <width>421</width>
+      <width>461</width>
       <height>20</height>
      </rect>
     </property>
@@ -59,7 +59,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>10</number>
+     <number>9</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -811,6 +811,97 @@
        <string>Установка Pantheon Greeter</string>
       </property>
      </widget>
+     <widget class="QCheckBox" name="chkInstallGreeterGtk">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>191</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка gtk greeter</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallGreeterWebkit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>211</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка webkit greeter</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallLitarvanGreeter">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>251</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка litarvan greeter</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallGreeterMini">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>80</y>
+        <width>211</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Mini Greeter</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallGreeterSlick">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>20</y>
+        <width>211</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка slick greeter</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallGreeterAether">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>40</y>
+        <width>221</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка Aether Greeter</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkInstallGreeterElefant">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>60</y>
+        <width>231</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Установка elephant greeter</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tabDesktopEnv">
      <attribute name="title">
@@ -1066,7 +1157,7 @@
      <x>0</x>
      <y>0</y>
      <width>778</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
