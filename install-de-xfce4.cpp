@@ -7,7 +7,7 @@ QStringList getInstallDeXfce4(){
     i << "sudo pacman -Sy xfwm4";
     i << "sudo pacman -Sy xfce4-goodies";
     i << "sudo pacman -Sy  mousepad";
-    i << "sudo pacman -Sy  yay -Sy menulibre";
+    i << "yay -Sy menulibre";
     i << "sudo pacman -Sy  alacarte";
     i << "sudo pacman -Sy  yay -Sy xame";
     return i;
