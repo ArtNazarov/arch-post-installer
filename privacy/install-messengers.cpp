@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-messengers.h"
+#include "privacy/install-messengers.h"
 
 QStringList getInstallMessengers(){
 QStringList Install_Messengers_Actions;

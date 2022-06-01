@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-system-tools.h"
+#include "./general/install-system-tools.h"
 
 QStringList getInstallSystemTools(){
 QStringList Install_System_Tools_Actions;

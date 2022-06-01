@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-freq.h"
+#include "general/install-freq.h"
 
 QStringList getInstallFreq(){
 QStringList Install_Freq_Actions;

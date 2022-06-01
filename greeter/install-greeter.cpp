@@ -1,6 +1,6 @@
 #include <QStringList>
 #include <QString>
-#include "./install-greeter.h"
+#include "greeter/install-greeter.h"
 
 
 QStringList getInstallPantheonGreeter(){

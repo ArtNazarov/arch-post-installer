@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-dev-tools.h"
+#include "misc/install-dev-tools.h"
 
 QStringList getInstallDeveloperTools(){
 

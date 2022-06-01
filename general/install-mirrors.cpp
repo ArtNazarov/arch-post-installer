@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-mirrors.h"
+#include "general/install-mirrors.h"
 
 QStringList getInstallMirrors(){
 QStringList Install_Mirrors_Actions;

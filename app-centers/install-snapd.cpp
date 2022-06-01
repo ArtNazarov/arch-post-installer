@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-snapd.h"
+#include "app-centers/install-snapd.h"
 
 QStringList getInstallSnapToolActions(){
     QStringList Install_Snap_Tools_Actions;

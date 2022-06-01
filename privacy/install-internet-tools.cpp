@@ -1,6 +1,6 @@
 
 #include <QStringList>
-#include "./install-internet-tools.h"
+#include "privacy/install-internet-tools.h"
 
 QStringList getInstallInternetTools(){
 QStringList Install_Internet_Tools_Actions;

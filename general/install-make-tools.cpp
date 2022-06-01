@@ -1,4 +1,4 @@
-#include "./install-make-tools.h"
+#include "general/install-make-tools.h"
 #include <QStringList>
 
 QStringList getInstallMakeActions(){

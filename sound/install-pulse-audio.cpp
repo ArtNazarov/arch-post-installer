@@ -1,4 +1,4 @@
-#include "./install-pulse-audio.h"
+#include "sound/install-pulse-audio.h"
 #include <QStringList>
 
 QStringList getInstallPulseAudioActions(){

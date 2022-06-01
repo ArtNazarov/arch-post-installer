@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-wine.h"
+#include "misc/install-wine.h"
 
 QStringList getInstallWine(){
 

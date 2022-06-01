@@ -1,4 +1,4 @@
-#include "./install-flatpak.h"
+#include "app-centers/install-flatpak.h"
 #include <QStringList>
 
 QStringList getInstallFlatPakActions(){

@@ -24,67 +24,67 @@ set(PROJECT_SOURCES
         tweaks/plasma-tweaks.cpp
         tweaks/xfce4-tweaks.h
         tweaks/xfce4-tweaks.cpp
-        install-keys.cpp
-        install-keys.h
-        install-make-tools.cpp
-        install-make-tools.h
-        install-pulse-audio.h
-        install-pulse-audio.cpp
-        install-snapd.cpp
-        install-snapd.h
-        install-flatpak.h
-        install-flatpak.cpp
-        install-internet-tools.h
-        install-internet-tools.cpp
-        install-system-clean.cpp
-        install-system-clean.h
-        install-dev-tools.cpp
-        install-dev-tools.h
-        install-wine.h
-        install-wine.cpp
-        install-freq.h
-        install-freq.cpp
-        install-auto-freq.cpp
-        install-auto-freq.h
-        install-security-tools.cpp
-        install-security-tools.h
-        install-system-tools.cpp
-        install-system-tools.h
+        general/install-keys.cpp
+        general/install-keys.h
+        general/install-make-tools.cpp
+        general/install-make-tools.h
+        sound/install-pulse-audio.h
+        sound/install-pulse-audio.cpp
+        app-centers/install-snapd.cpp
+        app-centers/install-snapd.h
+        app-centers/install-flatpak.h
+        app-centers/install-flatpak.cpp
+        privacy/install-internet-tools.h
+        privacy/install-internet-tools.cpp
+        cleaning/install-system-clean.cpp
+        cleaning/install-system-clean.h
+        misc/install-dev-tools.cpp
+        misc/install-dev-tools.h
+        misc/install-wine.h
+        misc/install-wine.cpp
+        general/install-freq.h
+        general/install-freq.cpp
+        general/install-auto-freq.cpp
+        general/install-auto-freq.h
+        privacy/install-security-tools.cpp
+        privacy/install-security-tools.h
+        general/install-system-tools.cpp
+        general/install-system-tools.h
         kernels/install-tkg-kernel.cpp
         kernels/install-tkg-kernel.h
-        install-zramswap.cpp
-        install-zramswap.h
-        install-nohang.cpp
-        install-nohang.h
+        optimization/install-zramswap.cpp
+        optimization/install-zramswap.h
+        optimization/install-nohang.cpp
+        optimization/install-nohang.h
         kernels/install-xanmod.cpp
         kernels/install-xanmod.h
-        install-audio-players.cpp
-        install-audio-players.h
+        sound/install-audio-players.cpp
+        sound/install-audio-players.h
         one-row-scripts.cpp
-        install-bluetooth-actions.cpp
-        install-bluetooth-actions.h
-        install-messengers.cpp
-        install-messengers.h
-        install-ananicy.cpp
-        install-ananicy.h
-        enable-trim.cpp
-        enable-trim.h
+        sound/install-bluetooth-actions.cpp
+        sound/install-bluetooth-actions.h
+        privacy/install-messengers.cpp
+        privacy/install-messengers.h
+        optimization/install-ananicy.cpp
+        optimization/install-ananicy.h
+        optimization/enable-trim.cpp
+        optimization/enable-trim.h
         install-networking.cpp
         install-networking.h
-        install-dbus.h
-        install-dbus.cpp
-        clear-font-cache.cpp
-        clear-font-cache.h
-        install-flatpak-software.cpp
-        install-flatpak-software.h
-        install-mirrors.cpp
-        install-mirrors.h
-        install-rng.h
-        install-rng.cpp
-        install-haveged.cpp
-        install-haveged.h
-        install-video-drivers.cpp
-        install-video-drivers.h
+        video/install-dbus.h
+        video/install-dbus.cpp
+        cleaning/clear-font-cache.cpp
+        cleaning/clear-font-cache.h
+        app-centers/install-flatpak-software.cpp
+        app-centers/install-flatpak-software.h
+        general/install-mirrors.cpp
+        general/install-mirrors.h
+        optimization/install-rng.h
+        optimization/install-rng.cpp
+        optimization/install-haveged.cpp
+        optimization/install-haveged.h
+        video/install-video-drivers.cpp
+        video/install-video-drivers.h
         de/install-gnome.cpp
         de/install-gnome.h
         de/install-de-cinnamon.cpp
@@ -103,8 +103,8 @@ set(PROJECT_SOURCES
         de/install-de-xfce4.h
         de/install-de-enl.cpp
         de/install-de-enl.h
-        install-greeter.cpp
-        install-greeter.h
+        greeter/install-greeter.cpp
+        greeter/install-greeter.h
         install-proc.h
         install-proc.cpp
         create-sh-file.cpp

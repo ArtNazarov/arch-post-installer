@@ -1,4 +1,4 @@
-#include "./install-internet-tools.h"
+#include "cleaning/install-system-clean.h"
 #include <QStringList>
 
 QStringList getInstallSystemClean(){

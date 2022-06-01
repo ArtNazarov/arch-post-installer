@@ -1,6 +1,6 @@
 
 #include <QStringList>
-#include "./clear-font-cache.h"
+#include "cleaning/clear-font-cache.h"
 
 QStringList getClearFontCache(){
 

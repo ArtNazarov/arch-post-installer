@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-rng.h"
+#include "optimization/install-rng.h"
 
 QStringList getInstallRng(){
 QStringList Install_RNG_Actions;

@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-haveged.h"
+#include "optimization/install-haveged.h"
 
 QStringList getInstallHaveged(){
 

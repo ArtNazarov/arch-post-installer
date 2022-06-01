@@ -1,4 +1,4 @@
-#include "./install-keys.h"
+#include "general/install-keys.h"
 #include <QStringList>
 
 QStringList getInstallKeysActions(){

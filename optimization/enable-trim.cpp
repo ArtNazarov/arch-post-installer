@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./enable-trim.h"
+#include "optimization/enable-trim.h"
 
 QStringList getEnableTrim(){
 QStringList Enable_Trim_Actions;

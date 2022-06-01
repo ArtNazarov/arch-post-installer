@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-audio-players.h"
+#include "sound/install-audio-players.h"
 
 
 QStringList getInstallAudioPlayers(){

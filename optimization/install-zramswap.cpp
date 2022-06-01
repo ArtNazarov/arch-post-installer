@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-zramswap.h"
+#include "optimization/install-zramswap.h"
 
 QStringList getInstallZramSwap(){
 

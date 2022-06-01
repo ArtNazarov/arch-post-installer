@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-bluetooth-actions.h"
+#include "sound/install-bluetooth-actions.h"
 
 QStringList getInstallBluetooth(){
 

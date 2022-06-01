@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-security-tools.h"
+#include "privacy/install-security-tools.h"
 
 QStringList getInstallSecurityTools(){
 QStringList Install_Security_Tools_Actions;

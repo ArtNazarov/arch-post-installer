@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-ananicy.h"
+#include "optimization/install-ananicy.h"
 
 QStringList getInstallAnanicy(){
 QStringList Install_Ananicy_Actions;

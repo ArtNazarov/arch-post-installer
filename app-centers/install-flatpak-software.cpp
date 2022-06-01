@@ -1,6 +1,6 @@
 
 #include <QStringList>
-#include "./install-flatpak-software.h"
+#include "app-centers/install-flatpak-software.h"
 
 QStringList getInstallSoftwareFromFlatpak(){
 QStringList Install_Software_from_Flatpak;

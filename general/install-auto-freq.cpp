@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-auto-freq.h"
+#include "general/install-auto-freq.h"
 
 QStringList getInstallAutoFreq(){
 
