@@ -315,6 +315,9 @@ void MainWindow::setTranslation(int lng){
     QStringList installxanmodkernel;
     installxanmodkernel << "Install Xanmod Kernel" << "Установка ядра Xanmod";
     ui->chkInstallXanmodKernel->setText(installxanmodkernel[lng]);
+    QStringList installxanmodfromrepo;
+    installxanmodfromrepo << "Install Xanmod Kernel from repo" << "Установка ядра Xanmod from repo";
+    ui->chkInstallXanmodFromRepo->setText(installxanmodfromrepo[lng]);
 
     QStringList updategrub;
     updategrub << "Update grub" << "Обновить загрузчик";
@@ -718,6 +721,24 @@ void MainWindow::on_pushButton_clicked()
         InstallProc(term, "sudo chmod +x install-xanmod.sh");
         InstallProc(term, "/bin/bash install-xanmod.sh");
     }
+
+
+
+    if (ui->chkInstallXanmodFromRepo->isChecked()){
+        message = "Install Xanmod kernel from repo";
+        ui->centralwidget->setWindowTitle(message);
+        QString path = qApp->applicationDirPath() +"/install-xanmod-repo.sh";
+        QStringList lines;
+        lines = getInstallXanmodFromRepo();
+        CreateShFile(path, lines);
+        QString term = this->getTerminal();
+        InstallProc(term, "sudo chmod +x install-xanmod-repo.sh");
+        InstallProc(term, "/bin/bash install-xanmod-repo.sh");
+    }
+
+
+
+
 
     if (ui->chkInstallTkgKernel->isChecked()){
         message = "Install Tkg kernel";

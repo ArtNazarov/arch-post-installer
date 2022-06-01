@@ -4,5 +4,6 @@
 #include <QStringList>
 
 QStringList getInstallXanmodActions();
+QStringList getInstallXanmodFromRepo();
 
 #endif // INSTALLXANMOD_H
