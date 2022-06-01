@@ -9,3 +9,5 @@ new ui with tabs by categories
 ![image](https://drive.google.com/uc?export=view&id=1yjQfSxm5H00DjZS6cUXVAYd9LX67ev-J)
  
 ![image](https://drive.google.com/uc?export=view&id=1LyGRqYd3rr_kMlznW2gQ35bK-nZ2kKTU)
+
+[Telegram:ArtNazarov](https://telegram.me/ArtNazarov)
