@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-de-deepin.h"
+#include "de/install-de-deepin.h"
 
 QStringList getInstallDeDeepin(){
 

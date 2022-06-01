@@ -1,4 +1,4 @@
-#include "./install-xanmod.h"
+#include "kernels/install-xanmod.h"
 #include <QStringList>
 
 QStringList getInstallXanmodActions(){

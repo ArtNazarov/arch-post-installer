@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-de-plasma.h"
+#include "de/install-de-plasma.h"
 
 QStringList getInstallDeLxQt(){
     QStringList i;

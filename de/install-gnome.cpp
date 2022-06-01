@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-gnome.h"
+#include "de/install-gnome.h"
 
 QStringList getInstallGnome(){
 

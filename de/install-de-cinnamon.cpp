@@ -1,7 +1,7 @@
 
 
 #include <QStringList>
-#include "./install-de-cinnamon.h"
+#include "de/install-de-cinnamon.h"
 
 QStringList getInstallDeCinnamon(){
     QStringList i;

@@ -5,15 +5,15 @@
 #include <QMap>
 #include <QFile>
 #include <QTextStream>
-#include "./gnome-tweaks.h"
-#include "./plasma-tweaks.h"
-#include "./xfce4-tweaks.h"
+#include "tweaks/gnome-tweaks.h"
+#include "tweaks/plasma-tweaks.h"
+#include "tweaks/xfce4-tweaks.h"
 #include "./install-keys.h"
 #include "./install-make-tools.h"
 #include "./install-pulse-audio.h"
 #include "./install-snapd.h"
 #include "./install-flatpak.h"
-#include "./install-xanmod.h"
+#include "kernels/install-xanmod.h"
 #include "./install-internet-tools.h"
 #include "./install-system-clean.h"
 #include "./install-dev-tools.h"
@@ -22,7 +22,8 @@
 #include "./install-auto-freq.h"
 #include "./install-security-tools.h"
 #include "./install-system-tools.h"
-#include "./install-tkg-kernel.h"
+#include "kernels/install-tkg-kernel.h"
+#include "kernels/install-lqx.h"
 #include "./install-zramswap.h"
 #include "./install-nohang.h"
 #include "./one-row-scripts.cpp"
@@ -39,19 +40,20 @@
 #include "./install-rng.h"
 #include "./install-haveged.h"
 #include "./install-video-drivers.h"
-#include "./install-gnome.h"
-#include "./install-de-cinnamon.h"
-#include "./install-de-deepin.h"
-#include "./install-de-lxde.h"
-#include "./install-de-lxqt.h"
-#include "./install-de-mate.h"
-#include "./install-de-plasma.h"
-#include "./install-de-xfce4.h"
-#include "./install-de-enl.h"
+#include "de/install-gnome.h"
+#include "de/install-de-cinnamon.h"
+#include "de/install-de-deepin.h"
+#include "de/install-de-lxde.h"
+#include "de/install-de-lxqt.h"
+#include "de/install-de-mate.h"
+#include "de/install-de-plasma.h"
+#include "de/install-de-xfce4.h"
+#include "de/install-de-enl.h"
 #include "./install-greeter.h"
 #include "./install-proc.h"
-#include "./optimize-cinnamon.h"
+#include "tweaks/optimize-cinnamon.h"
 #include "./create-sh-file.h"
+#include "kernels/install-pf-kernel.h"
 
 
 
@@ -306,22 +308,49 @@ void MainWindow::setTranslation(int lng){
     installsystemtools << " Install system tools " << "Установка системных программ";
     ui->chkInstallSystemTools->setText(installsystemtools[lng]);
 
+    // kernels translation
+
     QStringList installtkgkernel;
-    installtkgkernel << "Install tkg kernel" << "установка ядра TKG";
-    ui->chkInstallTkgKernel->setText(installtkgkernel[lng]);
-    QStringList installzenkernel;
-    installzenkernel << "Install Zen kernel" << "установка ядра ZEN";
-    ui->chkInstallZenKernel->setText(installzenkernel[lng]);
+    installtkgkernel << "Install tkg kernel";
+    installtkgkernel << QString("установка ядра TKG");
+    QStringList  installzenkernel;
+    installzenkernel << QString("Install Zen kernel");
+    installzenkernel << QString("установка ядра ZEN");
     QStringList installxanmodkernel;
-    installxanmodkernel << "Install Xanmod Kernel" << "Установка ядра Xanmod";
-    ui->chkInstallXanmodKernel->setText(installxanmodkernel[lng]);
+    installxanmodkernel << QString("Install Xanmod Kernel");
+    installxanmodkernel << QString("Установка ядра Xanmod");
+    QStringList  installlqxfromrepo;
+    installlqxfromrepo << QString("Install Lqx Kernel from repo");
+    installlqxfromrepo << QString("Установка ядра Lqx из реп.");
     QStringList installxanmodfromrepo;
-    installxanmodfromrepo << "Install Xanmod Kernel from repo" << "Установка ядра Xanmod from repo";
-    ui->chkInstallXanmodFromRepo->setText(installxanmodfromrepo[lng]);
+    installxanmodfromrepo << QString("Install Xanmod Kernel from repo") ;
+    installxanmodfromrepo << QString("Установка ядра Xanmod из реп.");
+    QStringList installkernelpf;
+    installkernelpf << QString("Install Pf from rep.") ;
+    installkernelpf << QString("Установка ядра Pf из реп.");
 
     QStringList updategrub;
     updategrub << "Update grub" << "Обновить загрузчик";
+
+
+
+    ui->chkInstallTkgKernel->setText(installtkgkernel[lng]);
+
+    ui->chkInstallZenKernel->setText(installzenkernel[lng]);
+
+    ui->chkInstallXanmodKernel->setText(installxanmodkernel[lng]);
+
+    ui->chkInstallKernelLqx->setText(installlqxfromrepo[lng]);
+
+    ui->chkInstallKernelLqx->setText(installlqxfromrepo[lng]);
+
+    ui->chkInstallXanmodFromRepo->setText(installxanmodfromrepo[lng]);
+
+    ui->chkInstallKernelPf->setText(installkernelpf[lng]);
+
     ui->chkUpdateGrub->setText(updategrub[lng]);
+
+    // Translation for video
 
     QStringList installvulkan;
     installvulkan << "Install Vulkan" << "Установка Vulkan";
@@ -736,6 +765,31 @@ void MainWindow::on_pushButton_clicked()
         InstallProc(term, "/bin/bash install-xanmod-repo.sh");
     }
 
+
+    if (ui->chkInstallKernelLqx->isChecked()){
+        message = "Install Lqx kernel from repo";
+        ui->centralwidget->setWindowTitle(message);
+        QString path = qApp->applicationDirPath() +"/install-lqx-repo.sh";
+        QStringList lines;
+        lines = getInstallLqxFromRepo();
+        CreateShFile(path, lines);
+        QString term = this->getTerminal();
+        InstallProc(term, "sudo chmod +x install-lqx-repo.sh");
+        InstallProc(term, "/bin/bash install-lqx-repo.sh");
+    }
+
+
+    if (ui->chkInstallKernelPf->isChecked()){
+        message = "Install Pf kernel from repo";
+        ui->centralwidget->setWindowTitle(message);
+        QString path = qApp->applicationDirPath() +"/install-pf-repo.sh";
+        QStringList lines;
+        lines = getInstallKernelPf();
+        CreateShFile(path, lines);
+        QString term = this->getTerminal();
+        InstallProc(term, "sudo chmod +x install-pf-repo.sh");
+        InstallProc(term, "/bin/bash install-pf-repo.sh");
+    }
 
 
 

@@ -18,12 +18,12 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
-        gnome-tweaks.cpp
-        gnome-tweaks.h
-        plasma-tweaks.h
-        plasma-tweaks.cpp
-        xfce4-tweaks.h
-        xfce4-tweaks.cpp
+        tweaks/gnome-tweaks.cpp
+        tweaks/gnome-tweaks.h
+        tweaks/plasma-tweaks.h
+        tweaks/plasma-tweaks.cpp
+        tweaks/xfce4-tweaks.h
+        tweaks/xfce4-tweaks.cpp
         install-keys.cpp
         install-keys.h
         install-make-tools.cpp
@@ -50,14 +50,14 @@ set(PROJECT_SOURCES
         install-security-tools.h
         install-system-tools.cpp
         install-system-tools.h
-        install-tkg-kernel.cpp
-        install-tkg-kernel.h
+        kernels/install-tkg-kernel.cpp
+        kernels/install-tkg-kernel.h
         install-zramswap.cpp
         install-zramswap.h
         install-nohang.cpp
         install-nohang.h
-        install-xanmod.cpp
-        install-xanmod.h
+        kernels/install-xanmod.cpp
+        kernels/install-xanmod.h
         install-audio-players.cpp
         install-audio-players.h
         one-row-scripts.cpp
@@ -85,32 +85,36 @@ set(PROJECT_SOURCES
         install-haveged.h
         install-video-drivers.cpp
         install-video-drivers.h
-        install-gnome.cpp
-        install-gnome.h
-        install-de-cinnamon.cpp
-        install-de-cinnamon.h
-        install-de-deepin.cpp
-        install-de-deepin.h
-        install-de-lxde.h
-        install-de-lxde.cpp
-        install-de-lxqt.cpp
-        install-de-lxqt.h
-        install-de-mate.cpp
-        install-de-mate.h
-        install-de-plasma.cpp
-        install-de-plasma.h
-        install-de-xfce4.cpp
-        install-de-xfce4.h
-        install-de-enl.cpp
-        install-de-enl.h
+        de/install-gnome.cpp
+        de/install-gnome.h
+        de/install-de-cinnamon.cpp
+        de/install-de-cinnamon.h
+        de/install-de-deepin.cpp
+        de/install-de-deepin.h
+        de/install-de-lxde.h
+        de/install-de-lxde.cpp
+        de/install-de-lxqt.cpp
+        de/install-de-lxqt.h
+        de/install-de-mate.cpp
+        de/install-de-mate.h
+        de/install-de-plasma.cpp
+        de/install-de-plasma.h
+        de/install-de-xfce4.cpp
+        de/install-de-xfce4.h
+        de/install-de-enl.cpp
+        de/install-de-enl.h
         install-greeter.cpp
         install-greeter.h
         install-proc.h
         install-proc.cpp
         create-sh-file.cpp
         create-sh-file.h
-        optimize-cinnamon.cpp
-        optimize-cinnamon.h
+        tweaks/optimize-cinnamon.cpp
+        tweaks/optimize-cinnamon.h
+        kernels/install-lqx.cpp
+        kernels/install-lqx.h
+        kernels/install-pf-kernel.cpp
+        kernels/install-pf-kernel.h
         mainwindow.ui
 )
 

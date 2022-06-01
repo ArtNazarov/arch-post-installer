@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-de-xfce4.h"
+#include "de/install-de-xfce4.h"
 
 QStringList getInstallDeXfce4(){
     QStringList i;

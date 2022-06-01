@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-tkg-kernel.h"
+#include "kernels/install-tkg-kernel.h"
 
 QStringList getInstallTkgKernel(){
 QStringList Install_Tkg_Kernel_Actions;

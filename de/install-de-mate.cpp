@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-de-mate.h"
+#include "de/install-de-mate.h"
 
 QStringList getInstallDeMate(){
 

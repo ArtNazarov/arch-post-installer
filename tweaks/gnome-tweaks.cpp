@@ -1,5 +1,5 @@
 #include <QString>
-#include "./gnome-tweaks.h"
+#include "tweaks/gnome-tweaks.h"
 QStringList getGnomeTweaksSh(){
     QStringList GnomeTweaks;
     // Remove optional software

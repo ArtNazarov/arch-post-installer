@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-de-enl.h"
+#include "de/install-de-enl.h"
 
 QStringList getInstallDeEnl(){
 

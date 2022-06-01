@@ -1,5 +1,5 @@
 #include <QStringList>
-#include "./install-de-lxde.h"
+#include "de/install-de-lxde.h"
 
 QStringList getInstallDeLxDe(){
     QStringList i;
