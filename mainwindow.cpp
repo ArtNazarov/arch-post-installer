@@ -308,6 +308,10 @@ void MainWindow::setTranslation(int lng){
     installsystemtools << " Install system tools " << "Установка системных программ";
     ui->chkInstallSystemTools->setText(installsystemtools[lng]);
 
+    QStringList knowninstallers;
+    knowninstallers << "Installer method" << "Метод установки";
+    ui->lblInstaller->setText(knowninstallers[lng]);
+
     // kernels translation
 
     QStringList installtkgkernel;
@@ -517,6 +521,22 @@ QString MainWindow::getTerminal(){
     return term;
 }
 
+QString MainWindow::getInstaller(){
+    QStringList variants;
+    variants << "arch";
+    variants << "deb";
+    variants << "rpm";
+
+
+    QString variant = variants[0];
+    int index = ui->cboInstaller->currentIndex();
+
+    if (index>=0){
+        variant = variants[index];
+    };
+    return variant;
+}
+
 void MainWindow::optimizeCinnamon(){
     QString path = qApp->applicationDirPath() +"/cinna.sh";
     QStringList lines;
@@ -532,8 +552,10 @@ void MainWindow::optimizeCinnamon(){
 
 void MainWindow::on_pushButton_clicked()
 {
+    // "arch", "deb" or "rpm"
+    QString variant = this->getInstaller();
 
-   QString term = this->getTerminal();
+    QString term = this->getTerminal();
 
 
     QStringList Install_Keys_Actions;
@@ -604,7 +626,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Wine_Actions;
-    Install_Wine_Actions = getInstallWine();
+    Install_Wine_Actions = getInstallWine( variant );
 
 
 

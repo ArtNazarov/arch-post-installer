@@ -71,7 +71,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="tabGeneral">
      <attribute name="title">
@@ -1199,6 +1199,50 @@
        <string>Язык</string>
       </property>
      </widget>
+     <widget class="QComboBox" name="cboInstaller">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>40</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="currentText">
+       <string>arch</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>arch</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>deb</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>rpm</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="lblInstaller">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>121</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Способ установки</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -1208,7 +1252,7 @@
      <x>0</x>
      <y>0</y>
      <width>760</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

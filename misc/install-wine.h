@@ -1,7 +1,9 @@
 #ifndef INSTALLWINE_H
 #define INSTALLWINE_H
-#include <QStringList>
 
-QStringList getInstallWine();
+#include <QStringList>
+#include <QString>
+
+QStringList getInstallWine(QString variant);
 
 #endif // INSTALLWINE_H

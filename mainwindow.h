@@ -16,6 +16,7 @@ public:
     void setTranslation(int lng);
     void optimizeCinnamon();
     QString getTerminal();
+    QString getInstaller();
     ~MainWindow();
 
 private slots:
