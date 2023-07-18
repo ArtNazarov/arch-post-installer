@@ -26,7 +26,7 @@
 #include "kernels/install-lqx.h"
 #include "optimization/install-zramswap.h"
 #include "optimization/install-nohang.h"
-#include "./one-row-scripts.cpp"
+#include "one-row-scripts.cpp"
 #include "sound/install-audio-players.h"
 #include "sound/install-bluetooth-actions.h"
 #include "privacy/install-messengers.h"
