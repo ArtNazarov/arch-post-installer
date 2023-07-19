@@ -12,6 +12,7 @@ Added deb/rpm scripts for:
 - Developer tools
 - PulseAudio
 - PipeWire
+- Alsa
 
 new ui with tabs by categories 
 

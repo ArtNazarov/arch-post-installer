@@ -30,6 +30,7 @@
 #include "sound/install-audio-players.h"
 #include "sound/install-bluetooth-actions.h"
 #include "sound/install-pipewire-sound.h"
+#include "sound/install-alsa-sound.h"
 #include "privacy/install-messengers.h"
 #include "optimization/install-ananicy.h"
 #include "optimization/enable-trim.h"
@@ -620,6 +621,9 @@ void MainWindow::on_pushButton_clicked()
     QStringList Install_PipeWire_Actions;
     Install_PipeWire_Actions = getInstallPipeWireActions( variant );
 
+    QStringList Install_Alsa_Actions;
+    Install_Alsa_Actions = getInstallAlsaActions( variant );
+
     QStringList Install_Audio_Players_Actions;
     Install_Audio_Players_Actions = getInstallAudioPlayers();
 
@@ -912,9 +916,9 @@ void MainWindow::on_pushButton_clicked()
     }
 
     if (ui->chkInstallAlsa->isChecked()){
-        message = "Install ALSA tools";
+        message = "Install PipeWire tools";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(term, INSTALL_ALSA);
+        InstallProcByList(term, Install_Alsa_Actions);
     }
 
     if (ui->chkInstallAudioPlayer->isChecked()){

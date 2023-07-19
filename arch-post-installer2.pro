@@ -51,6 +51,7 @@ SOURCES += \
     privacy/install-internet-tools.cpp \
     privacy/install-messengers.cpp \
     privacy/install-security-tools.cpp \
+    sound/install-alsa-sound.cpp \
     sound/install-audio-players.cpp \
     sound/install-bluetooth-actions.cpp \
     sound/install-pipewire-sound.cpp \
@@ -105,6 +106,7 @@ HEADERS += \
     privacy/install-internet-tools.h \
     privacy/install-messengers.h \
     privacy/install-security-tools.h \
+    sound/install-alsa-sound.h \
     sound/install-audio-players.h \
     sound/install-bluetooth-actions.h \
     sound/install-pipewire-sound.h \
