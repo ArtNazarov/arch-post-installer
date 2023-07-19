@@ -611,7 +611,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Developer_Tools_Actions;
-    Install_Developer_Tools_Actions = getInstallDeveloperTools();
+    Install_Developer_Tools_Actions = getInstallDeveloperTools( variant );
 
 
     QStringList Install_Flatpak_Tools_Actions;

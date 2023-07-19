@@ -2,7 +2,8 @@
 #define INSTALLDEVTOOLS_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallDeveloperTools();
+QStringList getInstallDeveloperTools(QString variant);
 
 #endif // INSTALLDEVTOOLS_H
