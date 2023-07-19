@@ -8,7 +8,7 @@ const QString INSTALL_ZEN_KERNEL = "sudo pacman -S linux-zen linux-zen-headers";
 const QString UPDATE_GRUB = "sudo grub-mkconfig -o /boot/grub/grub.cfg";
 const QString INSTALL_MESA = "sudo pacman -S mesa lib32-mesa";
 const QString CLEAR_GOOGLE_INSTALLATION = "sudo rm /opt/google -rf";
-const QString INSTALL_PIPEWIRE = "sudo pacman -S jack2 pipewire pipewire-jack pipewire-alsa pavucontrol pipewire-pulse alsa-utils";
+
 const QString INSTALL_ALSA = "sudo pacman -S alsa alsa-utils";
 const QString INSTALL_PAMAC = "yay -S pamac-aur";
 const QString INSTALL_PRIVACY_PASSWORDS = "sudo pacman -Sy keepassxc";

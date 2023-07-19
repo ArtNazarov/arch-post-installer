@@ -11,6 +11,7 @@ Added deb/rpm scripts for:
 - Wine
 - Developer tools
 - PulseAudio
+- PipeWire
 
 new ui with tabs by categories 
 

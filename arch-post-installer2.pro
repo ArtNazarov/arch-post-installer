@@ -53,6 +53,7 @@ SOURCES += \
     privacy/install-security-tools.cpp \
     sound/install-audio-players.cpp \
     sound/install-bluetooth-actions.cpp \
+    sound/install-pipewire-sound.cpp \
     sound/install-pulse-audio.cpp \
     tweaks/gnome-tweaks.cpp \
     tweaks/optimize-cinnamon.cpp \
@@ -106,6 +107,7 @@ HEADERS += \
     privacy/install-security-tools.h \
     sound/install-audio-players.h \
     sound/install-bluetooth-actions.h \
+    sound/install-pipewire-sound.h \
     sound/install-pulse-audio.h \
     tweaks/gnome-tweaks.h \
     tweaks/optimize-cinnamon.h \
