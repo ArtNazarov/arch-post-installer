@@ -643,7 +643,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Software_from_Flatpak = getInstallSoftwareFromFlatpak();
 
     QStringList Install_Snap_Tools_Actions;
-    Install_Snap_Tools_Actions = getInstallSnapToolActions();
+    Install_Snap_Tools_Actions = getInstallSnapToolActions( variant );
 
 
     QStringList Install_Wine_Actions;

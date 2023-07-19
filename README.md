@@ -19,6 +19,7 @@ Added deb/rpm scripts for:
 - Messengers
 - Security tools
 - Flatpak
+- Snap
 
 new ui with tabs by categories 
 

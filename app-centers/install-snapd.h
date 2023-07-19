@@ -2,7 +2,8 @@
 #define INSTALLSNAPD_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallSnapToolActions();
+QStringList getInstallSnapToolActions(QString variant);
 
 #endif // INSTALLSNAPD_H
