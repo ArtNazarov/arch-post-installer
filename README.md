@@ -14,6 +14,7 @@ Added deb/rpm scripts for:
 - PipeWire
 - Alsa
 - Bluetooth
+- Audio players
 
 new ui with tabs by categories 
 

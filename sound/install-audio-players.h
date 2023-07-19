@@ -3,7 +3,8 @@
 
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallAudioPlayers();
+QStringList getInstallAudioPlayers(QString variant);
 
 #endif // INSTALLAUDIOPLAYERS_H

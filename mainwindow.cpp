@@ -625,7 +625,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Alsa_Actions = getInstallAlsaActions( variant );
 
     QStringList Install_Audio_Players_Actions;
-    Install_Audio_Players_Actions = getInstallAudioPlayers();
+    Install_Audio_Players_Actions = getInstallAudioPlayers( variant );
 
     QStringList Install_Internet_Tools_Actions;
     Install_Internet_Tools_Actions =getInstallInternetTools();
