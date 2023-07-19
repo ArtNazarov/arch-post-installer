@@ -59,6 +59,7 @@ SOURCES += \
     tweaks/plasma-tweaks.cpp \
     tweaks/xfce4-tweaks.cpp \
     video/install-dbus.cpp \
+    video/install-portproton.cpp \
     video/install-video-drivers.cpp
 
 HEADERS += \
@@ -110,6 +111,7 @@ HEADERS += \
     tweaks/plasma-tweaks.h \
     tweaks/xfce4-tweaks.h \
     video/install-dbus.h \
+    video/install-portproton.h \
     video/install-video-drivers.h
 
 FORMS += \

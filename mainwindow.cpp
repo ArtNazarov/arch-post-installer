@@ -40,6 +40,7 @@
 #include "optimization/install-rng.h"
 #include "optimization/install-haveged.h"
 #include "video/install-video-drivers.h"
+#include "video/install-portproton.h"
 #include "de/install-gnome.h"
 #include "de/install-de-cinnamon.h"
 #include "de/install-de-deepin.h"
@@ -360,6 +361,10 @@ void MainWindow::setTranslation(int lng){
     installvulkan << "Install Vulkan" << "Установка Vulkan";
     ui->chkInstallVulkan->setText(installvulkan[lng]);
 
+    QStringList installportproton;
+    installportproton << "Install PortProton" << "Установка PortProton";
+    ui->chkInstallPortProton->setText(installportproton[lng]);
+
     QStringList installvideoplayers;
     installvideoplayers << "Install video players " << "Установка видео плееров";
     ui->chkInstallVideoPlayers->setText(installvideoplayers[lng]);
@@ -588,6 +593,10 @@ void MainWindow::on_pushButton_clicked()
 
     QStringList Install_Dbus_Broker_Actions;
     Install_Dbus_Broker_Actions = getInstallDbus( variant );
+
+    QStringList Install_PortProton_Actions;
+    Install_PortProton_Actions = getInstallPortProton( variant );
+
 
     QStringList Clear_Font_Cache_Actions;
     Clear_Font_Cache_Actions = getClearFontCache();
@@ -850,6 +859,12 @@ void MainWindow::on_pushButton_clicked()
         message = "Install dbus broker";
         ui->centralwidget->setWindowTitle(message);
         InstallProcByList(term, Install_Dbus_Broker_Actions);
+    }
+
+    if (ui->chkInstallPortProton->isChecked()){
+        message = "Install PortProton";
+        ui->centralwidget->setWindowTitle(message);
+        InstallProcByList(term, Install_PortProton_Actions);
     }
 
     if (ui->chkClearFontCache->isChecked()){
