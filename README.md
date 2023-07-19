@@ -17,6 +17,7 @@ Added deb/rpm scripts for:
 - Audio players
 - Internet tools
 - Messengers
+- Security tools
 
 new ui with tabs by categories 
 

@@ -609,7 +609,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Security_Tools_Actions;
-    Install_Security_Tools_Actions = getInstallSecurityTools();
+    Install_Security_Tools_Actions = getInstallSecurityTools( variant);
 
     QStringList Install_Bluetooth_Tools_Actions;
     Install_Bluetooth_Tools_Actions = getInstallBluetooth( variant );

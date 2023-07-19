@@ -2,7 +2,8 @@
 #define INSTALLSECURITYTOOLS_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallSecurityTools();
+QStringList getInstallSecurityTools(QString variant);
 
 #endif // INSTALLSECURITYTOOLS_H
