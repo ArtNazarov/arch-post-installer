@@ -47,4 +47,27 @@ uncomment or add lines in /etc/sudoers using sudo nano /etc/sudoers
 %sudo ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 
+How to build from sources
+==
+
+1. Install QtCreator and cmake (from extra/cmake)
+
+2. Launch in project folder cmake tool
+
+```
+$ cmake .
+```
+
+2. Launch compilation
+
+```
+$ make
+```
+
+3. To install build (will installed into /usr/local/bin/)
+
+```
+$ sudo make install
+```
+
 [Telegram:ArtNazarov](https://telegram.me/ArtNazarov)

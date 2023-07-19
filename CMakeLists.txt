@@ -85,6 +85,8 @@ set(PROJECT_SOURCES
         optimization/install-haveged.h
         video/install-video-drivers.cpp
         video/install-video-drivers.h
+        video/install-portproton.cpp
+        video/install-portproton.h
         de/install-gnome.cpp
         de/install-gnome.h
         de/install-de-cinnamon.cpp
@@ -115,6 +117,12 @@ set(PROJECT_SOURCES
         kernels/install-lqx.h
         kernels/install-pf-kernel.cpp
         kernels/install-pf-kernel.h
+        video/install-vulkan.cpp
+        video/install-vulkan.h
+        sound/install-alsa-sound.cpp
+        sound/install-alsa-sound.h
+        sound/install-pipewire-sound.cpp
+        sound/install-pipewire-sound.h
         mainwindow.ui
 )
 
@@ -154,3 +162,9 @@ set_target_properties(arch-post-installer PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(arch-post-installer)
 endif()
+
+
+
+install(TARGETS arch-post-installer DESTINATION /usr/local/bin)
+
+
