@@ -2,8 +2,9 @@
 #define INSTALLMESSENGERS_H
 
 #include <QStringList>
+#include <QString>
 
 
-QStringList getInstallMessengers();
+QStringList getInstallMessengers(QString variant);
 
 #endif // INSTALLMESSENGERS_H

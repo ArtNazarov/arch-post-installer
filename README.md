@@ -16,6 +16,7 @@ Added deb/rpm scripts for:
 - Bluetooth
 - Audio players
 - Internet tools
+- Messengers
 
 new ui with tabs by categories 
 

@@ -652,7 +652,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Messengers_Actions;
-    Install_Messengers_Actions = getInstallMessengers();
+    Install_Messengers_Actions = getInstallMessengers( variant );
 
     QStringList Install_Ananicy_Actions;
     Install_Ananicy_Actions = getInstallAnanicy();
