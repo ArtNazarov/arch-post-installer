@@ -587,7 +587,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Tkg_Kernel_Actions = getInstallTkgKernel();
 
     QStringList Install_Dbus_Broker_Actions;
-    Install_Dbus_Broker_Actions = getInstallDbus();
+    Install_Dbus_Broker_Actions = getInstallDbus( variant );
 
     QStringList Clear_Font_Cache_Actions;
     Clear_Font_Cache_Actions = getClearFontCache();

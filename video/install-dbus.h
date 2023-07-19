@@ -2,7 +2,8 @@
 #define INSTALLDBUS_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallDbus();
+QStringList getInstallDbus(QString variant);
 
 #endif // INSTALLDBUS_H
