@@ -73,4 +73,38 @@ $ make
 $ sudo make install
 ```
 
+Packaging
+===
+
+![install](https://drive.google.com/uc?export=view&id=1MeaFS8LCHplIRSxyWENyq4FNv6rcw2vC)
+
+1. Install tools for maintainers
+```
+sudo pacman -Sy oscpack
+```
+
+2. Install deb to zst converter debtap
+
+```
+sudo pacman -Sy oscpack
+```
+
+3. Make deb package
+
+```
+sudo cpack -G DEB
+```
+
+4. Convert deb to zst
+
+```
+sudo debtap -u
+debtap archlinux-post-installer_1.0.0-1_amd64.deb
+```
+
+5. Install using pacman -U
+```
+sudo pacman -U archlinux-post-installer-1.0.0-1-x86_64.pkg.tar.zst
+```
+
 [Telegram:ArtNazarov](https://telegram.me/ArtNazarov)

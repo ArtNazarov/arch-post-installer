@@ -2,6 +2,45 @@ cmake_minimum_required(VERSION 3.5)
 
 project(arch-post-installer VERSION 0.1 LANGUAGES CXX)
 
+# Uncomment this line to include a git submodule directory to this package
+# add_subdirectory("folder-name")
+
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+
+# Uncomment this lines to enable shlibs for this project
+# set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+# set(CPACK_DEBIAN_PACKAGE_GENERATE_SHLIBS ON)
+
+set(CPACK_DEBIAN_PACKAGE_NAME "archlinux-post-installer")
+set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
+
+
+set(CPACK_DEBIAN_PACKAGE_VERSION 1.0.0)
+set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
+
+# Uncomment this lines to use timestamp for the Debian release number
+# string(TIMESTAMP NOW "%s")
+# set(CPACK_DEBIAN_PACKAGE_RELEASE ${NOW})
+
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "ArchLinux Post Install")
+
+set(CPACK_PACKAGE_DESCRIPTION
+"GUI tool for postinstall arch, deb or rpm")
+
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Artyom Nazarov <artem@nazarow.ru>")
+set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://nazarow.ru")
+
+# set(CPACK_DEBIAN_PACKAGE_DEPENDS "libfoo, libgoo (>= 1.2)")
+
+# Uncomment this line if this package has conflict with other packages
+# set(CPACK_DEBIAN_PACKAGE_CONFLICTS "libpresomething-dev")
+
+# Uncomment this line if this package is replacing other packages
+# set(CPACK_DEBIAN_PACKAGE_REPLACES "libpresomething-dev")
+
+include(CPack)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOUIC ON)
