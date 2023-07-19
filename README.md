@@ -13,7 +13,7 @@ Added deb/rpm scripts for:
 
 new ui with tabs by categories 
 
-![image](https://drive.google.com/uc?export=view&id=1E8CO1OltSC5XHhZXs9vR8pPhOxh3TxCU)
+![image](http://apprr.rf.gd/arch-postinstaller2-options.png)
 
 ![image](https://drive.google.com/uc?export=view&id=1yjQfSxm5H00DjZS6cUXVAYd9LX67ev-J)
  
