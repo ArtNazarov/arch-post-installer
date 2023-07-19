@@ -636,7 +636,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Flatpak_Tools_Actions;
-    Install_Flatpak_Tools_Actions = getInstallFlatPakActions();
+    Install_Flatpak_Tools_Actions = getInstallFlatPakActions( variant );
 
 
     QStringList Install_Software_from_Flatpak;

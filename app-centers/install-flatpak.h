@@ -2,7 +2,8 @@
 #define INSTALLFLATPAK_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallFlatPakActions();
+QStringList getInstallFlatPakActions(QString variant);
 
 #endif // INSTALLFLATPAK_H

@@ -18,6 +18,7 @@ Added deb/rpm scripts for:
 - Internet tools
 - Messengers
 - Security tools
+- Flatpak
 
 new ui with tabs by categories 
 
