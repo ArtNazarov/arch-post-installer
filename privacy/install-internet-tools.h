@@ -2,7 +2,8 @@
 #define INSTALLINTERNETTOOLS_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallInternetTools();
+QStringList getInstallInternetTools(QString variant);
 
 #endif // INSTALLINTERNETTOOLS_H

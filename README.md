@@ -15,6 +15,7 @@ Added deb/rpm scripts for:
 - Alsa
 - Bluetooth
 - Audio players
+- Internet tools
 
 new ui with tabs by categories 
 

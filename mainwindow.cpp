@@ -628,7 +628,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Audio_Players_Actions = getInstallAudioPlayers( variant );
 
     QStringList Install_Internet_Tools_Actions;
-    Install_Internet_Tools_Actions =getInstallInternetTools();
+    Install_Internet_Tools_Actions =getInstallInternetTools( variant );
 
 
     QStringList Install_Developer_Tools_Actions;
