@@ -614,7 +614,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_PulseAudio_Actions;
-    Install_PulseAudio_Actions = getInstallPulseAudioActions();
+    Install_PulseAudio_Actions = getInstallPulseAudioActions( variant );
 
     QStringList Install_Audio_Players_Actions;
     Install_Audio_Players_Actions = getInstallAudioPlayers();

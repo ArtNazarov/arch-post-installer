@@ -10,6 +10,7 @@ Added deb/rpm scripts for:
 - Port Proton
 - Wine
 - Developer tools
+- PulseAudio
 
 new ui with tabs by categories 
 
