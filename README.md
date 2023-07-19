@@ -50,6 +50,9 @@ uncomment or add lines in /etc/sudoers using sudo nano /etc/sudoers
 How to build from sources
 ==
 
+![build](https://drive.google.com/uc?export=view&id=1qY9R2Gce6nPiEzKV_XZiC_Y9V0wCQ4JO)
+
+
 1. Install QtCreator and cmake (from extra/cmake)
 
 2. Launch in project folder cmake tool
