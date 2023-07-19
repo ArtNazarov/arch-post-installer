@@ -1,8 +1,16 @@
 # arch-post-installer
 gui tool for arch post install
 
-new ui with tabs by categories 
+Supports installation for deb and rpm distributions
 
+Added deb/rpm scripts for:
+
+- dbus broket
+- Port Proton
+- Wine
+- Developer tools
+
+new ui with tabs by categories 
 
 ![image](https://drive.google.com/uc?export=view&id=1E8CO1OltSC5XHhZXs9vR8pPhOxh3TxCU)
 
