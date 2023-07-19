@@ -45,7 +45,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>(c) Nazarov A.A., Russia, Orenburg, 2022, &lt;artem@nazarow.ru&gt;</string>
+     <string>(c) Nazarov A.A., Russia, Orenburg, 2022-2023, &lt;artem@nazarow.ru&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
