@@ -4,6 +4,6 @@
 #include <QStringList>
 
 
-QStringList getInstallBluetooth();
+QStringList getInstallBluetooth(QString variant);
 
 #endif // INSTALLBLUETOOTHACTIONS_H

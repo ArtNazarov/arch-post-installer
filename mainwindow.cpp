@@ -612,7 +612,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Security_Tools_Actions = getInstallSecurityTools();
 
     QStringList Install_Bluetooth_Tools_Actions;
-    Install_Bluetooth_Tools_Actions = getInstallBluetooth();
+    Install_Bluetooth_Tools_Actions = getInstallBluetooth( variant );
 
 
     QStringList Install_PulseAudio_Actions;

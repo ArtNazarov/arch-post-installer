@@ -13,6 +13,7 @@ Added deb/rpm scripts for:
 - PulseAudio
 - PipeWire
 - Alsa
+- Bluetooth
 
 new ui with tabs by categories 
 
