@@ -60,7 +60,8 @@ SOURCES += \
     tweaks/xfce4-tweaks.cpp \
     video/install-dbus.cpp \
     video/install-portproton.cpp \
-    video/install-video-drivers.cpp
+    video/install-video-drivers.cpp \
+    video/install-vulkan.cpp
 
 HEADERS += \
     app-centers/install-flatpak-software.h \
@@ -112,7 +113,8 @@ HEADERS += \
     tweaks/xfce4-tweaks.h \
     video/install-dbus.h \
     video/install-portproton.h \
-    video/install-video-drivers.h
+    video/install-video-drivers.h \
+    video/install-vulkan.h
 
 FORMS += \
     mainwindow.ui

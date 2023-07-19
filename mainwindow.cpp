@@ -41,6 +41,7 @@
 #include "optimization/install-haveged.h"
 #include "video/install-video-drivers.h"
 #include "video/install-portproton.h"
+#include "video/install-vulkan.h"
 #include "de/install-gnome.h"
 #include "de/install-de-cinnamon.h"
 #include "de/install-de-deepin.h"
@@ -597,6 +598,9 @@ void MainWindow::on_pushButton_clicked()
     QStringList Install_PortProton_Actions;
     Install_PortProton_Actions = getInstallPortProton( variant );
 
+    QStringList Install_Vulkan_Actions;
+    Install_Vulkan_Actions = getInstallVulkan( variant );
+
 
     QStringList Clear_Font_Cache_Actions;
     Clear_Font_Cache_Actions = getClearFontCache();
@@ -850,9 +854,9 @@ void MainWindow::on_pushButton_clicked()
     }
 
     if (ui->chkInstallVulkan->isChecked()){
-        message = "Install vulkan";
+        message = "Install Vulkan video system";
         ui->centralwidget->setWindowTitle(message);
-        InstallProc(term, INSTALL_VULKAN);
+        InstallProcByList(term, Install_Vulkan_Actions);
     }
 
     if (ui->chkInstallDbusBroker->isChecked()){
