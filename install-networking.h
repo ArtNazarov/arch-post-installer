@@ -1,8 +1,9 @@
 #ifndef INSTALLNETWORKING_H
 #define INSTALLNETWORKING_H
 
+#include <QString>
 #include <QStringList>
 
-QStringList getInstallNetworking();
+QStringList getInstallNetworking(QString variant);
 
 #endif // INSTALLNETWORKING_H

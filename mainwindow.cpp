@@ -581,7 +581,7 @@ void MainWindow::on_pushButton_clicked()
     Install_System_Tools_Actions = getInstallSystemTools( variant );
 
     QStringList Install_Networking_Actions;
-    Install_Networking_Actions = getInstallNetworking();
+    Install_Networking_Actions = getInstallNetworking( variant );
 
     QStringList Install_Freq_Actions;
     Install_Freq_Actions = getInstallFreq( variant );
@@ -660,7 +660,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Ananicy_Actions = getInstallAnanicy( variant );
 
     QStringList Install_RNG_Actions;
-    Install_RNG_Actions = getInstallRng();
+    Install_RNG_Actions = getInstallRng( variant );
 
     QStringList Install_Haveged_Actions;
     Install_Haveged_Actions = getInstallHaveged( variant );

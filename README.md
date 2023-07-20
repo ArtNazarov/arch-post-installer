@@ -27,6 +27,8 @@ Added deb/rpm scripts for:
 - System tools
 - Ananicy
 - Haveged
+- Rng
+- Networking
 
 new ui with tabs by categories 
 
