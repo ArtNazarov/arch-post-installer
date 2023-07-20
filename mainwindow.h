@@ -24,6 +24,8 @@ private slots:
 
     void on_cboLanguage_currentIndexChanged(int index);
 
+    void on_btnClose_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

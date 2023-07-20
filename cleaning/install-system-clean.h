@@ -2,7 +2,8 @@
 #define INSTALLSYSTEMCLEAN_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallSystemClean();
+QStringList getInstallSystemClean(QString variant);
 
 #endif // INSTALLSYSTEMCLEAN_H

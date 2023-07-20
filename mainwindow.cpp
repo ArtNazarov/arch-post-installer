@@ -667,7 +667,7 @@ void MainWindow::on_pushButton_clicked()
     Enable_Trim_Actions = getEnableTrim();
 
     QStringList Install_System_Clean_Tools;
-    Install_System_Clean_Tools = getInstallSystemClean();
+    Install_System_Clean_Tools = getInstallSystemClean( variant );
 
 
 
@@ -1222,5 +1222,11 @@ void MainWindow::on_cboLanguage_currentIndexChanged(int index)
     {
         this->setTranslation(0);
     };
+}
+
+
+void MainWindow::on_btnClose_clicked()
+{
+    this->close();
 }
 
