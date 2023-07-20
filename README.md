@@ -26,6 +26,7 @@ Added deb/rpm scripts for:
 - Make tools
 - System tools
 - Ananicy
+- Haveged
 
 new ui with tabs by categories 
 

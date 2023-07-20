@@ -663,7 +663,7 @@ void MainWindow::on_pushButton_clicked()
     Install_RNG_Actions = getInstallRng();
 
     QStringList Install_Haveged_Actions;
-    Install_Haveged_Actions = getInstallHaveged();
+    Install_Haveged_Actions = getInstallHaveged( variant );
 
     QStringList Enable_Trim_Actions;
     Enable_Trim_Actions = getEnableTrim();
