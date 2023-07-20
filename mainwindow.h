@@ -26,6 +26,8 @@ private slots:
 
     void on_btnClose_clicked();
 
+    void on_cboInstaller_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 };

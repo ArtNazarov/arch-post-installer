@@ -30,6 +30,7 @@ Added deb/rpm scripts for:
 - Rng
 - Networking
 
+
 new ui with tabs by categories 
 
 ![image](https://drive.google.com/uc?export=view&id=1vQ_zDkDlwFfrtRrmsdF9ZB8GzGp6ndN_)
@@ -37,6 +38,8 @@ new ui with tabs by categories
 ![image](https://drive.google.com/uc?export=view&id=1yjQfSxm5H00DjZS6cUXVAYd9LX67ev-J)
  
 ![image](https://drive.google.com/uc?export=view&id=1LyGRqYd3rr_kMlznW2gQ35bK-nZ2kKTU)
+
+Some actions are disabled for non Arch distributions
 
 Note:
 

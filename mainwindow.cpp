@@ -1232,3 +1232,26 @@ void MainWindow::on_btnClose_clicked()
     this->close();
 }
 
+
+void MainWindow::on_cboInstaller_currentIndexChanged(int index)
+{
+    bool isIfArch = (index == 0);
+    // hide for deb and rpm where is no script added
+    ui->chkInstallKeys->setEnabled(isIfArch);
+    ui->chkInstallCinnamon->setEnabled(isIfArch);
+    ui->chkInstallDeepin->setEnabled(isIfArch);
+    ui->chkGnomeOptimization->setEnabled(isIfArch);
+    ui->chkCinnamonOptimization->setEnabled(isIfArch);
+    ui->chkInstallEnl->setEnabled(isIfArch);
+    ui->chkInstallGnome->setEnabled(isIfArch);
+    ui->chkInstallGreeterAether->setEnabled(isIfArch);
+    ui->chkInstallGreeterElefant->setEnabled(isIfArch);
+    ui->chkInstallGreeterGtk->setEnabled(isIfArch);
+    ui->chkInstallGreeterMini->setEnabled(isIfArch);
+    ui->chkInstallGreeterSlick->setEnabled(isIfArch);
+    ui->chkInstallGreeterWebkit->setEnabled(isIfArch);
+    ui->chkInstallLitarvanGreeter->setEnabled(isIfArch);
+    ui->chkInstallPantheonGreeter->setEnabled(isIfArch);
+
+}
+
