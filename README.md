@@ -24,6 +24,7 @@ Added deb/rpm scripts for:
 - Auto cpu frequency tool
 - Cpupower gui
 - Make tools
+- System tools
 
 new ui with tabs by categories 
 

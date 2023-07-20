@@ -578,7 +578,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Make_Actions = getInstallMakeActions( variant );
 
     QStringList Install_System_Tools_Actions;
-    Install_System_Tools_Actions = getInstallSystemTools();
+    Install_System_Tools_Actions = getInstallSystemTools( variant );
 
     QStringList Install_Networking_Actions;
     Install_Networking_Actions = getInstallNetworking();

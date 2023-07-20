@@ -2,8 +2,8 @@
 #define INSTALLSYSTEMTOOLS_H
 
 #include <QStringList>
+#include <QString>
 
-
-QStringList getInstallSystemTools();
+QStringList getInstallSystemTools(QString variant);
 
 #endif // INSTALLSYSTEMTOOLS_H
