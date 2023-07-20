@@ -25,6 +25,7 @@ Added deb/rpm scripts for:
 - Cpupower gui
 - Make tools
 - System tools
+- Ananicy
 
 new ui with tabs by categories 
 

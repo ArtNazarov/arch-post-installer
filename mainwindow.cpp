@@ -630,7 +630,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Audio_Players_Actions = getInstallAudioPlayers( variant );
 
     QStringList Install_Internet_Tools_Actions;
-    Install_Internet_Tools_Actions =getInstallInternetTools( variant );
+    Install_Internet_Tools_Actions = getInstallInternetTools( variant );
 
 
     QStringList Install_Developer_Tools_Actions;
@@ -657,7 +657,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Messengers_Actions = getInstallMessengers( variant );
 
     QStringList Install_Ananicy_Actions;
-    Install_Ananicy_Actions = getInstallAnanicy();
+    Install_Ananicy_Actions = getInstallAnanicy( variant );
 
     QStringList Install_RNG_Actions;
     Install_RNG_Actions = getInstallRng();

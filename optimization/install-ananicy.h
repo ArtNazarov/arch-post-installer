@@ -2,7 +2,8 @@
 #define INSTALLANANICY_H
 
 #include <QStringList>
+#include <QString>
 
-QStringList getInstallAnanicy();
+QStringList getInstallAnanicy(QString variant);
 
 #endif // INSTALLANANICY_H
