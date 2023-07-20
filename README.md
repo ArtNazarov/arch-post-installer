@@ -22,6 +22,7 @@ Added deb/rpm scripts for:
 - Snap
 - System cleaning tools
 - Auto cpu frequency tool
+- Cpupower gui
 
 new ui with tabs by categories 
 

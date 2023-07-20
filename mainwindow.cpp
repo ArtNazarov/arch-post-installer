@@ -584,7 +584,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Networking_Actions = getInstallNetworking();
 
     QStringList Install_Freq_Actions;
-    Install_Freq_Actions = getInstallFreq();
+    Install_Freq_Actions = getInstallFreq( variant );
 
 
     QStringList Install_Auto_Freq;
