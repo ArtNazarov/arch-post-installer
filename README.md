@@ -20,6 +20,8 @@ Added deb/rpm scripts for:
 - Security tools
 - Flatpak
 - Snap
+- System cleaning tools
+- Auto cpu frequency tool
 
 new ui with tabs by categories 
 

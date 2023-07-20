@@ -498,7 +498,9 @@ void MainWindow::setTranslation(int lng){
     installgreeterwebkit << "Install Webkit Greeter" << "Установка WebKit Greeter";
     ui->chkInstallGreeterWebkit->setText(installgreeterwebkit[lng]);
 
-
+    QStringList btnclosecaptions;
+    btnclosecaptions << "Close" << "закрыть";
+    ui->btnClose->setText(btnclosecaptions[lng]);
 
 
 
@@ -586,7 +588,7 @@ void MainWindow::on_pushButton_clicked()
 
 
     QStringList Install_Auto_Freq;
-    Install_Auto_Freq = getInstallAutoFreq();
+    Install_Auto_Freq = getInstallAutoFreq( variant );
 
     QStringList Install_Xanmod_Kernel_Actions;
     Install_Xanmod_Kernel_Actions = getInstallXanmodActions();

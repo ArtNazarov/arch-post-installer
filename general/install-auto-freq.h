@@ -2,8 +2,9 @@
 #define INSTALLAUTOFREQ_H
 
 #include <QStringList>
+#include <QString>
 
 
-QStringList getInstallAutoFreq();
+QStringList getInstallAutoFreq(QString variant);
 
 #endif // INSTALLAUTOFREQ_H
