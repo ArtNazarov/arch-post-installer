@@ -575,7 +575,7 @@ void MainWindow::on_pushButton_clicked()
     Install_Mirrors_Actions = getInstallMirrors();
 
     QStringList Install_Make_Actions;
-    Install_Make_Actions = getInstallMakeActions();
+    Install_Make_Actions = getInstallMakeActions( variant );
 
     QStringList Install_System_Tools_Actions;
     Install_System_Tools_Actions = getInstallSystemTools();

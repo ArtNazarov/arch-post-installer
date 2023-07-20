@@ -1,6 +1,8 @@
 #ifndef INSTALLMAKETOOLS_H
 #define INSTALLMAKETOOLS_H
 #include <QStringList>
-QStringList getInstallMakeActions();
+#include <QString>
+
+QStringList getInstallMakeActions(QString variant);
 
 #endif // INSTALLMAKETOOLS_H

@@ -23,6 +23,7 @@ Added deb/rpm scripts for:
 - System cleaning tools
 - Auto cpu frequency tool
 - Cpupower gui
+- Make tools
 
 new ui with tabs by categories 
 
