@@ -1236,7 +1236,7 @@ void MainWindow::on_btnClose_clicked()
 void MainWindow::on_cboInstaller_currentIndexChanged(int index)
 {
     bool isIfArch = (index == 0);
-    // hide for deb and rpm where is no script added
+    // disable for deb and rpm where is no script added
     ui->chkInstallKeys->setEnabled(isIfArch);
     ui->chkInstallCinnamon->setEnabled(isIfArch);
     ui->chkInstallDeepin->setEnabled(isIfArch);
@@ -1252,6 +1252,26 @@ void MainWindow::on_cboInstaller_currentIndexChanged(int index)
     ui->chkInstallGreeterWebkit->setEnabled(isIfArch);
     ui->chkInstallLitarvanGreeter->setEnabled(isIfArch);
     ui->chkInstallPantheonGreeter->setEnabled(isIfArch);
+
+    ui->chkInstallKernelLqx->setEnabled(isIfArch);
+    ui->chkInstallKernelPf->setEnabled(isIfArch);
+    ui->chkInstallLxQt->setEnabled(isIfArch);
+    ui->chkInstallMate->setEnabled(isIfArch);
+    ui->chkInstallMc->setEnabled(isIfArch);
+    ui->chkInstallMirrors->setEnabled(isIfArch);
+    ui->chkInstallNohang->setEnabled(isIfArch);
+    ui->chkInstallPamac->setEnabled(isIfArch);
+    ui->chkInstallPlasma->setEnabled(isIfArch);
+    ui->chkInstallDeTools->setEnabled(isIfArch);
+    ui->chkInstallTkgKernel->setEnabled(isIfArch);
+    ui->chkInstallXanmodFromRepo->setEnabled(isIfArch);
+    ui->chkInstallXanmodKernel->setEnabled(isIfArch);
+    ui->chkInstallXfce4->setEnabled(isIfArch);
+    ui->chkInstallXanmodFromRepo->setEnabled(isIfArch);
+    ui->chkInstallXanmodKernel->setEnabled(isIfArch);
+    ui->chkInstallZenKernel->setEnabled(isIfArch);
+    ui->chkInstallZramSwap->setEnabled(isIfArch);
+    ui->chkInstall_LxDe->setEnabled(isIfArch);
 
 }
 
